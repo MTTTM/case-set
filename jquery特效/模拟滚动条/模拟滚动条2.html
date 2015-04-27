@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{width:30px;height:500px;background:black;position: absolute;left:10px;top:10px;}
+        #div2{width:30px;height:30px;background:red;position:absolute;left:0;top:0;}
+        #div3{width:500px;height:500px;background:darkslategrey;position: absolute;left:30px;top:10px;overflow: hidden;}
+        #box{position: absolute;height:auto;left:0;top:0;}
+        p{text-indent: 2em;line-height: 25px;color:#fff;}
+        h2{text-align: center;color:#fff;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oDiv1=document.getElementById("div1");
+            var oDiv2=document.getElementById("div2");
+            var oDiv3=document.getElementById("div3");
+            var box=document.getElementById("box");
+            var iMaxTop=oDiv1.offsetHeight-oDiv2.offsetHeight;//滚动条最大滚动距离
+            var oDiv3_MaxTop=box.offsetHeight-oDiv3.offsetHeight;//滚动页面最大滚动距离
+            oDiv2.onmousedown=function(ev)
+            {
+                var ev=ev||event;
+                var disY=ev.clientY-this.offsetTop;
+                document.onmousemove=function(ev)
+                {
+                    var ev=ev||event;
+                    var T=ev.clientY-disY;
+                    if(T<0){T=0;}
+                    else if(T>iMaxTop){T=iMaxTop}
+                    oDiv2.style.top=T+"px";
+                    var percent=T/iMaxTop;//获取滚动百分比
+                    oDiv3.scrollTop=oDiv3_MaxTop*percent;//滚动页面开始滚动
+                    console.log(box.offsetHeight)
+                };
+                document.onmouseup=function()
+                {
+                    document.onmousemove=document.onmouseup=document.onmousedown=null;
+                };
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<div id="div3">
+    <div id="box">
+    <h2>疼出来的女人</h2>
+    <p>女人入洞房那天，早早收起了自己的鞋，等男人脱鞋上炕，女人却双脚踩在男人的鞋上。男人见了，“嘿嘿”笑着说，还挺迷信。女人却认真地说，俺娘说了，踩了男人的鞋，一辈子不受男人的气。男人说，俺娘也说了，女人踩了男人的鞋，那是一辈子要跟男人吃苦受罪的。 </p>
+    <p>女人开始试探着管男人，先从生活小事儿开始，支使男人拿尿盆倒尿罐，男人全干了。地里的庄稼女人说种啥，男人就种啥。左邻右舍女人说跟谁走近点跟谁走远点，男人全听女人的。男人正跟人闲侃，女人一声喊，男人像被牵了鼻子的牛，乖乖就回去了。男人正跟人喝酒，女人上前只扯一下耳朵，就被拽进家。有人激男人，这女人三天不打，她就上房揭瓦。你也算个男人，怎能让女人管得没有一点男人的气概？若是我的女人，非扇她两鞋底不可。男人不急不慌地说：把你的女人叫来，我也舍得扇她两鞋底子。那人急了，你懂个好赖话不？上辈子老和尚托生的没见过女人！真不像你爹的种，怕老婆！</p>
+    <p>村里人再有大事商量，男人一出场，人们就说，这商量大事你也做不了主，还是把你家女人请来吧。男人还真把女人叫来了</p>
+    <p>女人能管住男人觉着很得意，直到有一天女人在男人耳边说起了婆婆的不是。男人红了眼，一声吼，想知道我为啥不打你吗？就因为我老娘。我娘一辈子不容易，我爹脾性暴躁，稍有不顺心，张口就骂举手就打，我爹打断过胳膊粗的棍子，打散过椅子。我娘为了我们几个孩子，竟熬了一辈子。每次见娘挨打，我都发誓，我娶了女人决不捅他一指头。不是我怕你，是我忘不了我老娘说的话，她说女人是被男人疼的，不是被男人打的。</p>
+    <p>女人惊呆了，她没想到男人的胸怀竟这样宽广。</p>
+    <p>男人在外再同人神吹海喝，女人不喊也不再拽耳朵，有时会端碗水递给男人。有人问男人，咋调教的？男人却一本正经地说：打出来的女人嘴服，疼出来的女人心服。</p>
+    </div>
+</div>
+</body>
+</html>

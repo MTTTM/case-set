@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        body{background:#000;overflow: hidden;}
+        .polaroid{position: absolute;z-index:1;}
+        .polaroid img{width:400px;display:block;padding:10px;background:#fff;}
+    </style>
+</head>
+<body>
+<div class="polaroid"><img src="images/pic1.jpg"/></div>
+<div class="polaroid"><img src="images/pic2.jpg"/></div>
+<div class="polaroid"><img src="images/pic3.jpg"/></div>
+<div class="polaroid"><img src="images/pic4.jpg"/></div>
+<div class="polaroid"><img src="images/pic5.jpg"/></div>
+<div class="polaroid"><img src="images/pic6.jpg"/></div>
+<div class="polaroid"><img src="images/pic7.jpg"/></div>
+<script type="text/javascript">
+    window.onload=function()
+    {
+        var oCover=document.getElementsByClassName("polaroid");
+        var body=document.getElementsByTagName("body")[0];
+        var index=1;
+        resize();
+        window.onresize=resize;
+        function resize()
+        {
+            var winh=document.documentElement.clientHeight;
+            var winw=document.documentElement.clientWidth;
+            body.style.height=winh;
+            body.style.width=winw;
+            for(var i=0;i<oCover.length;i++)
+            {
+                var left=Math.random()*(winw-1.3*oCover[i].offsetWidth);
+                var top=Math.random()*(winh-oCover[i].offsetHeight);
+                var deg=Math.random()*45;
+                if(i%2==0)
+                {
+                    deg=-deg;
+                }
+
+                oCover[i].style.left=left+"px";
+                oCover[i].style.top=top+"px";
+                oCover[i].style.transform="rotate("+deg+"deg)";
+
+                oCover[i].onmousedown=function(e)//实现拖拽
+                {
+                    index+=1;
+                    var _this=this;
+                    _this.style.zIndex=index;
+                    var ev=e||event;
+                    var downX=ev.clientX-this.offsetLeft;
+                    var downY=ev.clientY-this.offsetTop;
+                    document.onmousemove=function(e)
+                    {
+                        var ev=e||event;
+                        _this.style.left= ev.clientX-downX+"px";
+                        _this.style.top= ev.clientY-downY+"px";
+                    };
+                    document.onmouseup=function()
+                    {
+                        document.onmousemove=null;
+                        document.onmouseup=null;
+                    };
+                    return false;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

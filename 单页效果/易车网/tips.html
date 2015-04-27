@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>普通的图片轮播</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .img_tips{width:auto;height: auto;border:5px salmon solid;position: absolute;display: none;}
+        .img_tips img{width:600px;height: auto;}
+        .img_tips p{margin:0;padding:0;width:100%;height:50px;background:darkslategray;color:#fff;line-height: 50px;text-align: center;position: absolute;bottom:0;}
+        .text_tips{width:100px;text-align: center;border:1px solid burlywood;background:brown;position: absolute;display: none;}
+    </style>
+</head>
+<body>
+<p title="我是title">有tips</p>
+<img src="http://www.lcefox.com.cn/Marker/css3/daoying/img/6.jpg" alt="烈焰红唇，王子之风，霸气"/>
+</body>
+</html>
+        <script type="text/javascript">
+            var p=document.getElementsByTagName("p")[0];
+            var tt= p.title;
+            var tips=document.createElement("div");
+            tips.className="text_tips";
+            tips.innerText=tt;
+            document.body.appendChild(tips);
+            p.onmousemove=function(e)
+            {
+                var ev=e||event;
+                tips.style.display="block";
+                tips.style.left=ev.clientX+"px";
+                tips.style.top=ev.clientY+50+"px";
+            };
+            p.onmouseout=function(e)
+            {
+                tips.style.display="none";
+            };
+            //图片提示
+            var img=document.getElementsByTagName("img")[0];
+
+            var imgtip=document.createElement("div");
+            imgtip.className="img_tips";
+            var imgtxt=document.createElement("p");
+            imgtxt.innerText=img.alt;
+            imgtip.appendChild(imgtxt);
+            var tipImg=document.createElement("img");
+            tipImg.src=img.src;
+            imgtip.appendChild(tipImg);
+            document.body.appendChild(imgtip);
+            img.onmousemove=function(e)
+            {
+                var ev=e||event;
+                imgtip.style.display="block";
+                imgtip.style.left=ev.clientX+"px";
+                imgtip.style.top=ev.clientY+50+"px";
+            };
+            img.onmouseout=function(e)
+            {
+                imgtip.style.display="none";
+            };
+
+        </script>

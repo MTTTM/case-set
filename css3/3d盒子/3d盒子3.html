@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        #btns1{position: fixed;height:120px;top:calc(50% - 60px);}
+        #btns1 li{width:100px;height:24px;margin:3px 0;background:#f60;
+            text-align: right;padding-right:10px;font:14px/24px "微软雅黑";color:#fff;position:
+        relative;left:-80px;
+            -webkit-transition:.5s;
+        }
+        #btns1 .active{left:0;}
+        .wrap{width:800px;height: 400px;border:1px solid #000;margin:30px auto;-webkit-perspective:400px;}
+        .wrap ul{width:100%;height:100%;position: relative;-webkit-transform-style:preserve-3d;transition:5s;-webkit-transform-origin:center center 400px;/*旋转中心点*/}
+        .wrap ul li{width:100%;height:100%;position: absolute;top:0;font:100px/400px bold;color:#fff;text-align: center;}
+        .wrap ul li span{display: block;height:400px;width:600px;margin:0 auto;}
+        .wrap ul li:nth-of-type(1){left:0;top:0;}
+        .wrap ul li:nth-of-type(2){left:100%;-webkit-transform-origin:left;-webkit-transform:rotateY(-90deg);/*盒子向外翻转*/}
+        .wrap ul li:nth-of-type(3){left:0;top:0;-webkit-transform:translateZ(800px);/*向前推800*/}
+        .wrap ul li:nth-of-type(4){left:-100%;top:0;-webkit-transform-origin:right;-webkit-transform:rotateY(90deg);/*盒子向外翻转*/}
+        .wrap ul li:nth-of-type(1) span{background:green;}
+        .wrap ul li:nth-of-type(2) span{background:dodgerblue;}
+        .wrap ul li:nth-of-type(3) span{background:olive;}
+        .wrap ul li:nth-of-type(4) span{background:brown;}
+        body:hover #list{-webkit-transform:rotateY(-270deg)}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul id="list">
+        <li><span>1</span></li>
+        <li><span>2</span></li>
+        <li><span>3</span></li>
+        <li><span>4</span></li>
+    </ul>
+</div>
+<ul id="btns1">
+    <li class="active">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

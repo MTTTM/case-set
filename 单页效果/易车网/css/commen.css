@@ -1,0 +1,8 @@
+*{margin:0;padding:0;}
+body,html{margin:0;pading:0;list-style: none;font-family: "宋体";min-width: 380px;}
+a{color:#333;text-decoration: none;font-family: "宋体";font-weight: normal;}
+h1,h2,h3,h4,h5,h6,strong{text-decoration: none;font-family: "宋体";font-weight: normal;}
+ul{list-style:none;}
+.clear{clear:both;}
+.wrap{width:100%;}
+em{font-style:normal;}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .login{width:300px;height:300px;background:#fff;border:1px #000 solid;position:absolute;left:0;top:0;}
+        .title{height:30px;background:gray;color:#fff;}
+        .title .close{height:30px;width:30px;line-height: 30px;text-align: center;float:right;}
+    </style>
+    <script type="text/javascript">
+        /*框架 结构*/
+        window.onload=function()
+        {
+            var aInput=document.getElementsByTagName("input");
+            var d1=new Dialog();
+            d1.init({//配置参数
+
+            });
+        };
+        function Dialog()
+        {
+            this.settings={//默认参数
+
+            }
+        }
+        Dialog.prototype.init=function(opt)//初始化
+        {
+           extend(this.settings,opt);
+        };
+        function extend(obj1,obj2)
+        {
+            for(var attr in obj2)
+            {
+                obj1[attr]=obj2[attr];
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="1"/>
+<input type="button" value="2"/>
+<input type="button" value="3"/>
+<!---<div class="login">
+    <div class="title">
+        <span>标题</span><span class="close">X</span>
+    </div>
+    <div class="content"></div>
+</div>
+--->
+</body>
+</html>

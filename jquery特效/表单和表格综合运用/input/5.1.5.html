@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery1.42.min.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            //左边添加到右边
+         $("#add").click(function(){
+             var $options=$("#select1 option:selected");//获取选中的选项
+             $options.appendTo("#select2");
+         });
+            //添加全部
+            $("#add_all").click(function(){
+                var $options=$("#select1 option");
+                $options.appendTo("#select2");
+            })
+            //双击添加到右边
+            $("#select1 option").dblclick(function(){
+                var $options=$(this);//获取选中的选项
+                $options.appendTo("#select2");
+            })
+        })
+     </script>
+    <style type="text/css">
+        span{font-size: 12px;text-align: center;line-height:24px;background-color:#ffcccc;}
+    </style>
+</head>
+<body>
+<div class="centent" style="float:left;">
+    <select multiple id="select1" style="width:100px;height:160px">
+        <option value="1">选项1</option>
+        <option value="2">选项2</option>
+        <option value="3">选项3</option>
+        <option value="4">选项4</option>
+        <option value="5">选项5</option>
+        <option value="6">选项6</option>
+        <option value="7">选项8</option>
+    </select>
+    <div >
+        <span id="add" style="display: block">选中添加到右边>></span>
+        <span id="add_all" style="display: block">全部添加到右边>></span>
+        <span>双击也能到右边</span>
+    </div>
+</div>
+
+<div class="centent" style="float:left;">
+    <select multiple id="select2" style="width:100px;height:160px">
+
+    </select>
+    <div >
+        <span id="remove" style="display: block">选中删除到右边</span>
+        <span id="remove_all" style="display: block">全部删除到右边</span>
+    </div>
+</div>
+<p style="color:#555555;background:#ffcccc;font-size:12px;">因为右边到左边的程序是一样的，所以就不添加了</p>
+</body>
+</html>

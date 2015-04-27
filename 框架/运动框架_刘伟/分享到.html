@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style  type="text/css">
+        .box{position: absolute;left:-100px;width:100px;height:300px;background:green;}
+        .fx{position: absolute;right:-30px;top:80px;width:30px;height:80px;background:black;color:#fff;text-align: center;font-size: 20px;}
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="fx" id="fxd">分享到</div>
+</div>
+</body>
+</html>
+        <script type="text/javascript">
+            var box=document.getElementById("box");
+            var fxd=document.getElementById("fxd");
+            box.onmouseover=function()
+            {
+                startMove(this,"left",0,10);
+            };
+            box.onmouseout=function()
+            {
+                startMove(this,"left",-100,-10);
+            };
+            function startMove(obj,attr,itarget,iSpeed)
+            {
+                clearInterval(obj.timer);
+                var iCur=0;
+                obj.timer=setInterval(function()
+                {
+                    iCur=parseInt(css(obj,attr));
+                    if(iCur==itarget)
+                    {
+                        clearInterval(obj.timer)
+                    }
+                    else
+                    {
+                        obj.style[attr]=iCur+iSpeed+"px";
+                    }
+                },30)
+            }
+
+                function css(obj, attr)
+                {
+                    if (obj.currentStyle)
+                    {
+                        return obj.currentStyle[attr];
+                    }
+                    else
+                    {
+                        return getComputedStyle(obj, false)[attr];
+                    }
+                }
+
+        </script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{width:100px;height:100px;background:red;position: absolute;left:0;}
+        span{position: absolute;left:500px;height:6000px;border-left:1px solid red;}
+    </style>
+    <script type="text/javascript" src="move.js"></script>
+    <script type="text/javascript">
+        window.onload=function() {
+            var div1 = document.getElementById("div1");
+            div1.onclick = function () {
+                startMove(div1,"left",500)
+            };
+            function startMove(obj,attr,iTarget) {
+                clearInterval(obj.timer);
+                var iSpeed = 0;
+                var iCur = parseInt(getStyle(obj, attr));
+                obj.timer = setInterval(function () {
+                    var iCur = parseInt(getStyle(obj, attr));
+                    iSpeed += (500 - iCur) / 50;
+                    iSpeed *= 0.95;
+
+                    if (Math.abs(iSpeed) <= 1 && Math.abs(iTarget - iCur) <= 1) {
+                        clearInterval(obj.timer);//清除定时器
+                        obj.style[attr] =iTarget+"px";//修正误差
+                        iSpeed = 0;
+                    }
+                    obj.style[attr] = iCur + iSpeed + "px";
+                }, 30)
+            }
+            function getStyle(obj, attr) {
+                if (obj.currentStyle) {
+                    return  obj.currentStyle[attr];
+                }
+                else {
+                    return   getComputedStyle(obj, false)[attr];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<span></span>
+</body>
+</html>

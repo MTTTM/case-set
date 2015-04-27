@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        #box{width:600px;height:30px;margin:50px auto;}
+        ul{list-style: none;width:600px;height:27px;margin:0;padding:0;position: relative;}
+        li{width:80px;height:25px;float:left;border:1px solid darkslategray;margin:0 2px 0;}
+        #bg{position: absolute;height:10px;background:red;left:0;bottom:0;;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var box=document.getElementById("box");
+            var bg=document.getElementById("bg");
+            var li=box.getElementsByClassName("li");
+            var timer=null;
+            var iSpeed=0;
+            for(var i=0;i<li.length;i++)
+            {
+                li[i].onmouseover=function()
+                {
+                    startMove(this.offsetLeft);
+                    console.log(this.offsetLeft);
+                }
+                li[i].onmouseout=function()
+                {
+                    startMove(0);
+                }
+            }
+
+            function startMove(iTarget)
+            {
+                 clearInterval(timer);
+                timer=setInterval(function(){
+                    iSpeed+=(iTarget-bg.offsetLeft)/6;
+                    iSpeed*=0.75;
+                    if(Math.abs(iSpeed)<=1&&Math.abs(iTarget-bg.offsetLeft)<=1)
+                    {
+                        clearInterval(timer);
+                        iSpeed=0;
+                        bg.style.left=iTarget+"px";
+                    }
+                    else
+                    {
+                        bg.style.left=bg.offsetLeft+iSpeed+"px";
+                    }
+                },30)
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li id="bg"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li"></li>
+
+    </ul>
+    <div style="clear:both"></div>
+</div>
+
+</body>
+</html>

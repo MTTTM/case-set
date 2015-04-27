@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden;}
+        .clearfix {zoom: 1;}
+        .banWrap{position: relative;width:100%;height:202px;overflow: hidden;}
+        ul{list-style: none;position: absolute;left:0;}
+        li{float:left;}
+        li img{width:100%;}
+    </style>
+    <script type="text/javascript" src="miaov.js"></script>
+</head>
+
+<body>
+<div class="banWrap clearfix">
+    <ul class="clearfix">
+        <li><img src="images/pat1_4.jpg"/></li>
+        <li><img src="images/pat1_1.jpg"/></li>
+        <li><img src="images/pat1_2.jpg"/></li>
+        <li><img src="images/pat1_3.jpg"/></li>
+        <li><img src="images/pat1_4.jpg"/></li>
+        <li><img src="images/pat1_1.jpg"/></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var banWrap=document.getElementsByClassName("banWrap")[0];
+    var oUl=banWrap.getElementsByTagName("ul")[0];
+    var oLi=banWrap.getElementsByTagName("li");
+    touch(banWrap,oUl,oLi);
+    function touch(wrap,oUl,oLi)
+    {
+       // var banWrap=document.getElementsByClassName("banWrap")[0];
+       // var oUl=banWrap.getElementsByTagName("ul")[0];
+       // var oLi=banWrap.getElementsByTagName("li");
+        for(var i=0;i<oLi.length;i++)
+        {
+            oLi[i].style.width=window.window.screen.availWidth+"px";
+        }
+        var w=parseInt(oLi[0].offsetWidth);
+        oUl.style.width=w*6+"px";
+        oUl.style.left=-w+"px";
+        oUl.addEventListener("touchstart",start,false);
+        var disX=0;
+        var disY=0;
+        var downX;
+        var iNow=1;
+        function start(eve)
+        {
+            var ev=eve.changedTouches[0];
+            downX=ev.clientX;
+            disX= ev.pageX-oUl.offsetLeft;
+            document.addEventListener("touchmove",move,false);
+            document.addEventListener("touchend",end,false);
+            eve.preventDefault();
+            return false;
+        }
+        function move(ev)
+        {
+            var ev=ev.changedTouches[0];
+            var pageX=ev.clientX-disX;
+            oUl.style.left=pageX+"px";
+        }
+        function end(ev) {
+            document.removeEventListener("touchmove");
+            document.removeEventListener("touchend");
+            var ev = ev.changedTouches[0];
+            var endX = ev.clientX;
+            if (endX< downX)
+            {
+                if (downX - endX > w/3 && iNow<=oLi.length-2)
+                //至少滑动1/4的宽度才能切换同时iNow没有超过最大的范围
+                {
+                    iNow++;
+
+                }
+                console.log(iNow);
+
+                startMove(oUl,{left:-iNow*oLi[0].offsetWidth},function()
+                {
+                    // alert(iNow)
+
+                    if(iNow==5)
+                    {
+                        iNow=1;
+                        oUl.style.left=-w+"px";
+                        // oUl.style.display="none";
+                        console.log(iNow);
+                        console.log(oUl.style.left);
+                    }
+                });
+            }
+            else
+            {
+                if (downX - endX< w/3 && iNow!=-1)
+
+                //至少滑动一半的宽度或者滑动间隔毫秒少于300毫秒同时滑动距离大于30才能切换
+                {
+                    iNow--;
+                }
+                startMove(oUl,{left:-iNow*w},function()
+                {
+
+                    console.log(iNow);
+                    if(iNow==0)
+                    {
+                        iNow=oLi.length - 2;
+                        oUl.style.left=-(iNow*w)+"px";//-1416
+                        console.log(iNow)
+                    }
+
+                });
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

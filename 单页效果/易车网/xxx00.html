@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<FONT size=4 face=黑体><BR>欢迎进入<FONT color=red>《重庆国防医院》</FONT>免费咨询与预约挂号中心 <BR></FONT><FONT color=#0000a0><FONT size=4 face=黑体>你的个人信息受到法律保护，我们将严格保密！</FONT><STRONG><FONT size=4 face=黑体>（加密处理）</FONT><BR></STRONG></FONT><FONT size=3 face=幼圆>医院地址：重庆南岸区南滨西路1号 </FONT>
+<P>
+<P><FONT size=3 face=幼圆>上班时间：<FONT color=blue><STRONG>8:00-12:00&nbsp; &nbsp;14:00-17:30</STRONG></FONT> (<FONT color=#804040><STRONG>节假日不休</STRONG></FONT>)</FONT></P><FONT size=3 face=幼圆>咨询电话：<FONT color=red><STRONG>023-62780233</STRONG>&nbsp;&nbsp;&nbsp;&nbsp;</FONT>咨询QQ：<IMG onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&amp;sid=800069785&amp;o=www.guofang99.com&amp;q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');" style="CURSOR: pointer" border=0 alt=在线医生 src="http://wpa.qq.com/pa?p=1:800069785:1">&nbsp;<FONT color=red><STRONG>800069785</STRONG></FONT> </FONT>
+<P><FONT face=幼圆><FONT size=3><FONT color=red>
+    <STYLE type=text/css>
+        #box{width:280px;height:33px;position: relative;}
+        input:focus{border:none;outline: none;}
+        input{border:none;background:none;outline:none;}
+        input#txt{width:186px;height:18px;position: absolute;top:5px;left:4px;border:none;color:#313131;font-family: "宋体";font-size: 12px;line-height: 18px;}
+        input#btn{width:80px;height:21px;position: absolute;top:5px;right:4px;background:url(http://jpg.guofang99.com/image/tel.jpg) no-repeat 190px center;cursor:pointer;}
+    </STYLE>
+</P>
+<DIV id=box><IMG onload=Move() src="http://jpg.guofang99.com/image/tel.jpg"> <INPUT onfocus=Move.ff() onblur=Move.blur() id=txt> <INPUT onclick=Move.float_tel() id=btn type=button> </DIV>
+<SCRIPT type=text/javascript>
+    function Move()
+    {
+        var timer=null;
+        var tel_num = "请输入您电话号码";
+        var num_m = "";
+        var txt = document.getElementById("txt");
+        var i = 0;
+        timer = setInterval(autoAd, 300);
+        function autoAd()
+        {
+            if (i > tel_num.length) {
+                i = 0;
+                num_m = "";
+            }
+            num_m += tel_num.charAt(i);
+            txt.value = num_m;
+            i++;
+
+        }
+        Move.ff=function()
+        {
+            var tvalue=txt.value;
+            var pdw=tvalue.substring(0,1);
+            if(pdw=="请")
+            {
+                clearInterval(timer);
+                document.getElementById("txt").value="";
+            }
+        };
+        Move.blur=function()
+        {
+            var tvalue=txt.value;
+            var pdw=tvalue.substring(0,1);
+            if(pdw=="请"||pdw=="")
+            {
+                num_m = "";
+                document.getElementById("txt").value=num_m;
+                i=0;
+                timer=setInterval(autoAd,300);
+            }
+        };
+
+
+        Move.float_tel=function() {
+            lxb.call(txt);
+        };
+    }
+
+</SCRIPT>
+
+<script type="text/javascript"  data-lxb-uid="7792390" data-lxb-gid="124739" src="http://lxbjs.baidu.com/api/asset/api.js?t=' + new Date().getTime() + '" charset="utf-8"></script>
+温馨提示：</font>通过网络预约可避免排队挂号等候，优先安排就诊。 </font></font>
+
+
+
+</body>
+</html>

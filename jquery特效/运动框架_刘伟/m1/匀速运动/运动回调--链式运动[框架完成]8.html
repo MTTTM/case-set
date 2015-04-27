@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{width:100px;height:100px;background:red;position: absolute;top:100px;}
+    </style>
+    <script type="text/javascript">
+        var iTimer=null;
+        window.onload=function(){
+            var oDiv1=document.getElementById("div1");
+            oDiv1.onmouseover=function()
+            {
+                startMove(this,{width:200},10,function()
+                {
+                    startMove(this,{height:600},10)
+                });
+            };
+            oDiv1.onmouseout=function()
+            {
+                startMove(this,{width:100,height:100},-10);
+            };
+
+            function startMove(obj,json,iSpeed,fn)
+            {
+                clearInterval(obj.iTimer);
+                var iCur=0;
+                obj.iTimer=setInterval(function()
+                {
+                    //定时器每走一次 就把所有属性都执行一次
+                    var iBtn=true;
+                    for(var attr in json)
+                    {
+                        var itarget=json[attr];//得到每个目标点
+                        if(attr=="opacity")
+                        {
+                            iCur=Math.round(css(obj,"opacity")*100);
+                        }
+                        else
+                        {
+                            iCur=parseInt(css(obj,attr));
+                        }
+
+                        if(iCur!=itarget)//判断是否所有的值都达到目标
+                        {
+                            iBtn=false;
+                            if(attr=="opacity")
+                            {
+                                obj.style.opacity=(iCur+iSpeed)/100;
+                                obj.style.filter="alpha(opacity="+(iCur+iSpeed)+")"
+                            }
+                            else
+                            {
+                                obj.style[attr]=iCur+iSpeed+"px";
+                            }
+                        }
+                    }
+                    if(iBtn)
+                    {
+                        clearInterval(obj.iTimer);
+                        fn&&fn.call(obj); //回调
+
+                    }
+
+                },30)
+
+            }
+            function css(obj, attr)
+            {
+                if (obj.currentStyle) {
+                    return obj.currentStyle[attr];
+                } else {
+                    return getComputedStyle(obj, false)[attr];
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

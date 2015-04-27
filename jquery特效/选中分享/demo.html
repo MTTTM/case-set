@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box{width:500px;height:auto;border:1px solid yellowgreen;margin:200px auto;}
+        p{text-indent: 2em;}
+        #fenxian{position: absolute;display: none;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            //选择文字
+            function selectText()
+            {
+                if(document.selection)//IE
+                {
+                    return document.selection.createRange().text;
+                }
+                else
+                {
+                    return window.getSelection().toString();
+                }
+            }
+            var oImg=document.getElementById("fenxian");
+            var p1=document.getElementById("p1");
+            document.onclick=function()
+            {
+                oImg.style.display="none";
+            };
+            //阻止冒泡
+            function prevent(e)
+            {
+                if (window.event) {
+                    e.cancelBubble=true;
+                } else {
+                    //e.preventDefault();
+                    e.stopPropagation();
+                }
+            }
+
+            p1.onclick=function(ev)
+            {
+                var ev=ev||event;
+               prevent(ev);
+            };
+            p1.onmouseup=function(ev)
+            {
+                //alert(selectText())
+                var ev=ev||event;
+                var pageX=ev.clientX;
+                var pageY=ev.clientY;
+                if(selectText().length>10)
+                {
+                    setTimeout(function(){
+                        oImg.style.display="block";
+                        oImg.style.left=pageX+"px";
+                        oImg.style.top=pageY+"px";
+                    },30)
+
+                }
+                else
+                {
+                    oImg.style.display="none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <p id="p1">酒吧外最后一辆汽车远去，摇滚乐也随暗色灯光宁静了。他端起硕大的酒杯一饮而尽，啤酒瞬间在胃里膨胀，似乎要溢出来
+    “先生，酒吧３点打烊，请明天再来吧。”一个清纯的女孩恭立在旁，眼睛大大的，声音很甜。许可一颤，说：“哦，好。”他掏出一支烟来，几次没点着。他的脸消瘦而苍白。
+   他搓了搓手，问女孩：“抽烟吗？”
+    “抽支吧，外国烟呢。我抽过最棒的烟，对鼻腔刺激不像一般的烟草味那样粗糙而模糊，它带着一种舒适的温情。而且，它还有独特的香味，你闻闻，一种馨香，无法言说味道……”</p>
+</div>
+<img src="xinan.png" id="fenxian"/>
+</body>
+</html>

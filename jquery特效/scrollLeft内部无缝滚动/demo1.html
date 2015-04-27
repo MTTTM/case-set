@@ -1,0 +1,64 @@
+<!doctype html>
+<title>javascript无缝滚动</title>
+<meta charset="utf-8"/>
+<meta name="keywords" content="javascript无缝滚动" />
+<meta name="description" content="javascript无缝滚动" />
+<!-- <base href="http://images.cnblogs.com/cnblogs_com/rubylouvre/199042/"> -->
+<style type="text/css">
+    h1 {
+        font:400 16px/1 "Microsoft YaHei",KaiTi_GB2312,SimSun
+    }
+    #marquee {
+        position:relative;
+        width: 600px;
+        height: 280px;
+        overflow:hidden;
+        border: 10px solid #8080C0;
+    }
+    #marquee img {
+        border:0px;
+    }
+    #marquee dl, #marquee dt,#marquee dd,#marquee a {
+        float:left;
+        margin:0;
+        padding:0;
+    }
+    #marquee dl{
+        width:1000%;
+        height:150px;
+    }
+</style>
+<script type="text/javascript">
+    var Marquee = function(id){
+        var container = document.getElementById(id);
+         var original = container.getElementsByTagName("dt")[0];
+         var  clone = container.getElementsByTagName("dt")[1];
+        var iSpeed=10;
+        clone.innerHTML=original.innerHTML;
+        var rolling = function(){
+            if(container.scrollLeft == clone.offsetLeft){
+                container.scrollLeft = 0;
+            }else{
+                container.scrollLeft++;
+            }
+        };
+        var timer = setInterval(rolling,iSpeed);//设置定时器
+        container.onmouseover=function() {clearInterval(timer)};//鼠标移到marquee上时，清除定时器，停止滚动
+        container.onmouseout=function() {timer=setInterval(rolling,iSpeed)};//鼠标移开时重设定时器
+    };
+    window.onload = function(){
+        Marquee("marquee");
+    }
+</script>
+<h1>javascript无缝滚动(向右滚动) </h1>
+<div id="marquee">
+    <dl>
+        <dt>
+            <a href=""><img src="http://www.nowamagic.net/images/1.jpg" alt="javascript无缝滚动"/></a>
+            <a href=""><img src="http://www.nowamagic.net/images/2.jpg" alt="javascript无缝滚动"/></a>
+            <a href=""><img src="http://www.nowamagic.net/images/3.jpg" alt="javascript无缝滚动"/></a>
+            <a href=""><img src="http://www.nowamagic.net/images/4.jpg" alt="javascript无缝滚动"/></a>
+        </dt>
+        <dt></dt>
+    </dl>
+</div>  

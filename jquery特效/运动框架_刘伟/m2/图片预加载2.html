@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        img{width:300px;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oImg=document.getElementById("img");
+            var oImage=new Image();
+            var arr=[
+                "http://d.3987.com/zhangli_141125/001.jpg",
+                "http://d.3987.com/mtfrm_141125/001.jpg",
+                "http://d.3987.com/xunyanzi_141124/001.jpg",
+                "http://d.3987.com/bcypyyc_141125/001.jpg",
+                "http://d.3987.com/jingdianpaoc_141124/001.jpg",
+            ];
+            var iCur=0;
+            var i=0;
+            xulei();
+            oImg.onclick=function()
+            {
+                i++;
+                if(i<arr.length)
+                {
+                    oImg.src=arr[i];
+                }
+            };
+            oImage.onerror=function()
+            {
+                alert("加载错误")
+            }
+            function xulei()
+            {
+                oImage.src=arr[iCur];
+                oImage.onload=function()
+                {
+                    iCur++;
+                    if(iCur<arr.length)//循环
+                    {
+                        xulei();
+                    }
+                    document.title=iCur+"|"+arr.length;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<img src="http://d.3987.com/zhangli_141125/001.jpg" id="img"/>
+</body>
+</html>

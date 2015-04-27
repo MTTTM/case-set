@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery1.42.min.js"></script>
+    <style type="text/css">
+        #hospital_swt_box{}
+        #hospital_swt_box .swt_box_left{position: fixed;top:20%;right:0;width:172px;height:262px;background:url(images/oo.png) no-repeat;}
+        #hospital_swt_box .swt_box_center{position: fixed;display:none;width:440px;height:369px;background:url(images/01.png) no-repeat;}
+        #hospital_swt_box .swt_box_left .swt_alink1{display: block;position: absolute;width:101px;height:29px;left:26px;top:195px;border-radius: 5px;}
+        #hospital_swt_box .swt_box_left .swt_alink2{display: block;position: absolute;width:101px;height:29px;left:26px;top:227px;border-radius: 5px;}
+        #hospital_swt_box .swt_box_left .swt_alink3{display: block;position: absolute;width:101px;height:29px;left:23px;top:324px;border-radius: 5px;}
+        #hospital_swt_box .swt_box_left .swt_close_left{display: block;position: absolute;width:13px;height:13px;right:0;top:0;}
+        #hospital_swt_box .swt_box_center .swt_center_top_close{position: absolute;width:19px;height:19px;top:4px;right:6px;cursor:pointer;}
+        #hospital_swt_box .swt_box_center .swt_center_btm_close{position: absolute;width:60px;height:21px;top:342px;right:159px;border-radius: 5px;}
+    </style>
+</head>
+<body style="height:3000px;">
+
+<script type="text/javascript">
+    (function(){
+        //必须定3个开关
+      var  btn=false;//控制是否有点击，如果点击了就为true，否则false
+        var swt=false;//判断滚动距离，如果大于300就为true,否则为false
+        var canC=false;//判断是否可以产生悬浮框，只能生成一个
+        var timer=null;//第一次弹窗
+        var timer2=null;//第二次弹窗
+        var setT1=2000;//第一次弹窗间隔时间
+        var setT2=10000;//第二次弹窗间隔时间
+        function create_swt()
+        {
+            swt=0;
+            var swt_box='<div id="hospital_swt_box"><div class="swt_box_left"><a href="javascript:;" class="swt_close_left"></a></div><div class="swt_box_center"><div class="swt_center_btm_close"></div><div class="swt_center_top_close"></div></div></div>';
+            $("body").prepend(swt_box);
+            $("#hospital_swt_box .swt_box_center").css({"left":winWidth()/2-parseInt($("#hospital_swt_box .swt_box_center").css("width"))/2});
+            $("#hospital_swt_box .swt_box_center").css({"top":winHeight()/2-parseInt($("#hospital_swt_box .swt_box_center").css("height"))/2});
+            //中间悬浮框点击事件
+            $("#hospital_swt_box .swt_box_center .swt_center_btm_close").click(function(){
+
+                close_center_swt();
+                timer2=setTimeout(show_center_swt,setT2);//第二次
+            });
+            $("#hospital_swt_box .swt_box_center .swt_center_top_close").click(function(){
+
+                close_center_swt();
+                timer2=setTimeout(show_center_swt,setT2);//第二次
+            });
+            //点击关闭左边悬浮框,清除所有的悬浮框
+            $("#hospital_swt_box .swt_box_left .swt_close_left").click(function(){
+                btn=true;//已经点击了
+                remove_swt();
+                clearTimeout(timer2);
+                clearTimeout(timer);
+            });
+        }
+        function remove_swt()
+        {
+            $("#hospital_swt_box").remove();
+        }
+        function show_center_swt()
+        {
+          $("#hospital_swt_box .swt_box_center").show();
+            $("#hospital_swt_box .swt_box_left").hide();
+        }
+        function close_center_swt()
+        {
+            $("#hospital_swt_box .swt_box_center").hide();
+            $("#hospital_swt_box .swt_box_left").show();
+        }
+        function close_left_swt(){
+            $("#hospital_swt_box .swt_box_center").hide();
+            $("#hospital_swt_box .swt_box_left").hide();
+            btn=false;
+        }
+       /* if(btn==false) {
+            timer=setTimeout(show_center_swt,100000);//第一次
+        }*/
+        //判断距离
+        $(window).scroll(function()
+        {
+
+                if ($(window).scrollTop()>300)
+                {
+                    swt=true;
+
+                  //  console.log("swt------>"+swt);
+                  //  console.log("btn----->"+btn);
+                    if(swt==true&&btn==false)
+                    {
+                    //  alert("dd")
+                       // console.log("swt------>"+swt);
+                       console.log(canC);
+                        if(canC==false)
+                        {
+                            timer=setTimeout(show_center_swt,setT1);//第一次
+                            create_swt();
+                        }
+                       canC=true;
+                    }
+                }
+                else
+                {
+                    remove_swt();
+                   // $("#hospital_swt_box .swt_box_center").hide();
+                   // $("#hospital_swt_box .swt_box_left").hide();
+                    clearTimeout(timer);
+                   // console.log(">300swt------>"+swt);
+                   // console.log(">300btn----->"+btn);
+                    swt=false;
+                    btn=false;
+                    canC=false;
+                }
+        });
+
+        //获取窗口的宽度
+        function winWidth()
+        {
+            return parseInt($(window).width());
+        }
+        //获取窗口的高度
+        function winHeight()
+        {
+            return parseInt($(window).height());
+        }
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,725 @@
+@charset "gb2312";
+
+.font{
+	display: inline-block;
+	background: url(../img/dianjiang-font.png) 0 0 no-repeat;
+}
+
+.page-3 .page-content{
+	top:34px;
+	zoom:1;
+}
+
+.page-3 .right-top-btn{
+	position: absolute;
+	width:186px;
+	height:26px;
+	right:0;
+	top:0;
+}
+.page-3 .right-top-btn .game-home{
+	display: block;
+	float:left;
+	margin-right:10px;
+	width:93px;
+	height:26px;
+	background: url(../img/dianjiang-btn.png) 0 0 no-repeat;
+}
+.page-3 .right-top-btn .game-home:hover{
+	background-position: 0 -26px;
+}
+.page-3 .right-top-btn .order{
+	display: block;
+	float: left;
+	width:83px;
+	height:26px;
+	background: url(../img/dianjiang-btn.png) -93px 0 no-repeat;
+}
+.page-3 .right-top-btn .order:hover{
+	background-position: -93px -26px;
+}
+
+.page-3 .hero-type-option{
+	float:left;
+	width:240px;
+	height:70px;
+	margin-top: 82px;
+	position: relative;
+}
+.page-3 .hero-type-option a{
+	display: block;
+	float:left;
+	background: url(../img/dianjiang-type.png) 0 0 no-repeat;
+}
+.page-3 .hero-type-option .hero{
+	width:121px;
+	height: 37px;
+	background-position: 0 -68px;
+}
+.page-3 .hero-type-option .hero.check,.page-3 .hero-type-option .hero:hover{
+	background-position: 0 0;
+}
+.page-3 .hero-type-option .skill{
+	width:119px;
+	height: 37px;
+	background-position: -121px 0;
+}
+.page-3 .hero-type-option .skill.check,.page-3 .hero-type-option .skill:hover{
+	background-position: -121px -68px;
+}
+.page-3 .hero-type-option .job{
+	width:121px;
+	height:25px;
+	margin-top:8px;
+	background-position: 0px -112px;
+}
+.page-3 .hero-type-option .job.check,.page-3 .hero-type-option .job:hover{
+	background-position: 0px -43px;
+	margin-top: 5px;
+}
+.page-3 .hero-type-option .country{
+	width:119px;
+	height: 25px;
+	margin-top: 8px;
+	background-position: -121px -44px;
+}
+.page-3 .hero-type-option .country.check,.page-3 .hero-type-option .country:hover{
+	background-position: -121px -114px;
+}
+.page-3 .list-page{
+	float:right;
+	width:68px;
+	height:24px;
+	display: none;
+	margin-right: 1px;
+	margin-top: 128px;
+}
+.page-3 .list-page a{
+	display: block;
+	float:left;
+	width:34px;
+	height:34px;
+	background: url(../img/dianjiang-list-page.png) 0 0 no-repeat;
+}
+.page-3 .list-page .pre-btn{
+	background-position: 0 -34px;
+}
+.page-3 .list-page .pre-btn.dis{
+	background-position: 0 0px;
+	cursor: default;
+}
+.page-3 .list-page .next-btn{
+	background-position: -34px -34px; 
+}
+.page-3 .list-page .next-btn.dis{
+	background-position: -34px 0px;
+	cursor: default;
+}
+
+.page-3 .bottom-content{
+	float:left;
+	width:1199px;
+	margin-top:10px;
+	position: relative;
+}
+
+.page-3 .left-side{
+	float:left;
+	width:239px;
+	height:480px;
+	position: relative;
+	zoom:1;
+	left:0;
+	overflow: hidden;
+}
+.page-3 .left-side .side-type{
+	float:left;
+	width:100%;
+	height:160px;
+	background: url(../img/left-side-type-bg.jpg) no-repeat;
+	position: relative;
+}
+.page-3 .left-side .type-wording{
+	float:left;
+	display: block;
+	width:100%;
+	text-align: center;
+	height:35px;
+	margin-top: 38px;
+}
+.page-3 .left-side .main-type{
+	float: left;
+	width:100%;
+	display: block;
+	height: 48px;
+}
+.page-3 .left-side .main-type li{
+	float:left;
+	background-color:#376a7d; 
+	height:100%;
+	cursor: pointer;
+	text-align: center;
+	line-height: 48px;
+	*font-size: 40px;/*约为高度的0.873，350*0.873 约为305*/
+	*font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+}
+.page-3 .left-side .main-type label{
+	cursor: pointer;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+.page-3 .left-side .main-type .select,.page-3 .left-side .main-type li:hover{
+	background:none !important;
+}
+.page-3 .left-side .main-type .other{
+	background-color: #234d5d;
+}
+.page-3 .left-side .country li{
+	width:60px;
+}
+.page-3 .left-side .country li.min{
+	width:59px;
+}
+.page-3 .left-side .job li{
+	width:60px;
+}
+.page-3 .left-side .job li.min{
+	width:59px;
+}
+.page-3 .left-side .skill li{
+	width:120px;
+}
+.page-3 .left-side .skill li.min{
+	width:119px;
+}
+.page-3 .left-side .side-star{
+	width:100%;
+	float:left;
+	position: relative;
+}
+.page-3 .left-side .side-star li{
+	float:left;
+	width:100%;
+	height:80px;
+	position: relative;
+	overflow: hidden;
+}
+.page-3 .left-side .side-star a{
+	float: left;
+	width: 100%;
+	height: 100%;
+	background-color: #376a7d;
+	line-height: 80px;
+	text-align: center;
+	display: block;
+}
+.page-3 .left-side .side-star .other a{
+	background-color:#234d5d;
+}
+.page-3 .left-side .side-star span{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../img/dianjiang-star.png) 0 0 no-repeat;
+	margin-right: 3px
+}
+.page-3 .left-side .side-star .black-star{
+	background-position: -16px 0;
+}
+.page-3 .left-side .side-star label{
+	position: absolute;
+	left:0;
+	top:0;
+	height: 100%;
+	border-left: 11px solid #74bcaf;
+	overflow: hidden;
+	display: none;
+}
+.page-3 .left-side .side-star .select label,.left-side .side-star a:hover label{
+	display: block;
+}
+.page-3 .left-side .side-star .star-4.select,.page-3 .left-side .side-star .star-4:hover{
+	background-color:#ffbb37;
+}
+.page-3 .left-side .side-star .star-3.select,.page-3 .left-side .side-star .star-3:hover{
+	background-color:#c982cc;
+}
+.page-3 .left-side .side-star .star-2.select,.page-3 .left-side .side-star .star-2:hover{
+	background-color:#28a4c3;
+}
+.page-3 .left-side .side-star .star-1.select,.page-3 .left-side .side-star .star-1:hover{
+	background-color:#9bbf1d;
+}
+
+.page-3 .card-list{
+	float:right;
+	width:960px;
+	height:480px;
+	position: relative;
+	overflow: hidden;
+}
+.page-3 .card-list ul{
+	float:left;
+}
+.page-3 .card-list li{
+	float:left;
+	width:160px;
+	height:160px;
+	background: url(../img/card-bg.jpg) 0 0 no-repeat;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+}
+.page-3 .card-list li.no{
+	background-position: 0 -160px;
+	cursor: default;
+}
+.page-3 .card-list .intro{
+	margin-top: 63px;
+	width:100%;
+	position: absolute;
+	left:0;
+	top:0;
+	text-align: center;
+}
+.page-3 .card-list .intro h4{
+	font-size: 18px;
+	color:white;
+}
+.page-3 .card-list .intro span{
+	font-size: 12px;
+	color:#507481;
+}
+.page-3 .card-list .cover-img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 2;
+	top:-160px;
+}
+.page-3 .card-list .cover-img img{
+	width: 100%;
+	height: 100%;
+}
+
+.page-3 .card-desc{
+	float:right;
+	width:960px;
+	height:620px;
+	margin-top: -93px;
+	position: relative;
+}
+.page-3 .left-intro{
+	float:left;
+	position: relative;
+	color:#234d5d;
+	margin:8px 0 0 54px;
+	width: 336px;
+}
+.page-3 .left-intro .name{
+	display: block;
+	font-size: 62px;
+	font-weight: bolder;
+	line-height: 62px;
+}
+.page-3 .left-intro .intro{
+	font-size: 12px;
+	margin-top: 13px;
+	line-height: 20px;
+	display: block;
+	float:left;
+	padding-bottom:11px;
+	border-bottom:1px dotted #7d949b;
+	width: 240px;
+}
+.page-3 .left-intro .type{
+	clear:left;
+	float:left;
+	margin-top: 16px;
+	width:100%;
+	margin-left: 3px;
+	font-size: 14px;
+}
+.page-3 .left-intro .type label{
+	font-size: 18px;
+	font-weight: bolder;
+}
+.page-3 .left-intro .level-one{
+	width:242px;
+	height: 29px;
+	background-color: #234d5d;
+	clear: left;
+	float:left;
+	margin-top: 10px;
+	color:#9dc4d1;
+	font-size: 12px;
+	text-align: center;
+	line-height: 29px;
+}
+.page-3 .left-intro .level-one label{
+	color:white;
+}
+.page-3 .left-intro .card-3d{
+	margin-top: 25px;
+	width:176px;
+	height:165px;
+	clear:left;
+	float:left;
+}
+.page-3 .left-intro .card-info-type{
+	margin-top: 21px;
+	clear: left;
+	float:left;
+	width:336px;
+}
+.page-3 .left-intro .card-info-type .skill{
+	display: block;
+	float: left;
+	width:103px;
+	height: 24px;
+	margin-right: 14px;
+	background: url(../img/card-info-type.png) -103px 0 no-repeat;
+}
+.page-3 .left-intro .card-info-type .skill.select{
+	background-position: 0 0;
+}
+.page-3 .left-intro .card-info-type .attri{
+	display: block;
+	float: left;
+	width:103px;
+	height: 24px;
+	background: url(../img/card-info-type.png) -103px -24px no-repeat;
+}
+.page-3 .left-intro .card-info-type .attri.select{
+	background-position: 0 -24px;
+}
+.page-3 .left-intro .info-type-desc{
+	clear: left;
+	float:left;
+	display: block;
+	margin-top: 18px;
+	font-size: 12px;
+	width: 100%;
+}
+.page-3 .left-intro .info-type-desc li{
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+.page-3 .center-intro{
+	float:left;
+	position: relative;
+	width:436px;
+	height: 100%;
+}
+.page-3 .center-intro img{
+	position: absolute;
+	left:50%;
+	top:50%;
+	max-width: 735px;
+	_width:735px;
+	margin-left:-314px;
+	margin-top:-355px;
+}
+.page-3 .center-intro .pre-btn{
+	position: absolute;
+	left:0;
+	top:228px;
+	display: block;
+	width: 39px;
+	height: 34px;
+	background: url(../img/card-info-page.png) 0 0 no-repeat;
+	z-index:2;
+}
+.page-3 .center-intro .pre-btn:hover{
+	background-position: 0 -34px;
+}
+.page-3 .center-intro .next-btn{
+	position: absolute;
+	right:0;
+	top:228px;
+	display: block;
+	width: 39px;
+	height: 34px;
+	background: url(../img/card-info-page.png) -39px 0 no-repeat;
+	z-index:2;
+}
+.page-3 .center-intro .next-btn:hover{
+	background-position: -39px -34px;
+}
+
+.page-3 .right-nav{
+	display: block;
+	width: 80px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.page-3 .right-nav li{
+	clear: right;
+	float:right;
+	color:#234d5d;
+	width: 100%;
+	position: relative;
+}
+.page-3 .right-nav .line{
+	clear: right;
+	float: right;
+	width:1px;
+	height: 19px;
+	overflow: hidden;
+	background-color: #234d5d;
+	margin-right: 7px;
+}
+.page-3 .right-nav span{
+	float:right;
+	margin-right: 11px;
+	text-align: right;
+	display: block;
+	height: 15px;
+	font-size: 12px;
+	line-height: 15px;
+}
+.page-3 .right-nav label{
+	display: block;
+	float: right;
+	width:15px;
+	height: 15px;
+	background: url(../img/card-info-change.png) -15px 0 no-repeat;
+}
+.page-3 .right-nav label.select{
+	background-position: 0 0;
+}
+.page-3 .right-nav .cover{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+
+.page-3 .skill-list{
+	float:right;
+	width: 960px;
+	height: 480px;
+}
+.page-3 .skill-list li{
+	width:960px;
+	height: 80px;
+	float:left;
+	background: url(../img/skill-bg-1.png) repeat-x;
+	position: relative;
+	color:white;
+}
+.page-3 .skill-list .header{
+	color:#558597;
+}
+.page-3 .skill-list span{
+	display: block;
+	float:left;
+	height: 100%;
+	line-height: 80px;
+	text-align: center;
+	position: relative;
+}
+.page-3 .skill-list .icon{
+	width: 75px;
+}
+.page-3 .skill-list .name{
+	width:100px;
+}
+.page-3 .skill-list .pinzhi{
+	width: 81px;
+}
+.page-3 .skill-list .type{
+	width: 83px;
+}
+.page-3 .skill-list .target{
+	width: 82px;
+}
+.page-3 .skill-list .xiaohao{
+	width: 73px;
+}
+.page-3 .skill-list .xiaoguo{
+	width: 395px;
+	height: 36px;
+	margin:22px 0 0 36px;
+	line-height: 36px;
+}
+.page-3 .skill-list .xiaoguo.double{
+	line-height: 18px;
+	text-align: left;
+}
+.page-3 .skill-list .line{
+	position: absolute;
+	right:0;
+	top:29px;
+	width:0;
+	height: 21px;
+	border-right: 1px dotted #3a6777;
+}
+.page-3 .skill-list .logo{
+	position: absolute;
+	left:18px;
+	top:17px;
+	width:45px;
+	height:45px;
+	background: url(../img/skill-logo-bg.png) no-repeat;
+}
+.page-3 .skill-list .logo img{
+	float:left;
+	margin: 2px 0 0 2px;
+	width: 41px;
+	height: 41px;
+}
+
+
+/*font*/
+.shu{
+	width: 16px;
+	height:18px;
+	background-position: -1px 0px;
+}
+.select .shu,li:hover .shu{
+	background-position: -1px -21px;
+}
+.wei{
+	width: 17px;
+	height:17px;
+	background-position: -21px 0px;
+}
+.select .wei,li:hover .wei{
+	background-position: -21px -21px;
+}
+.wu{
+	width:16px;
+	height:17px;
+	background-position: -43px 0;
+}
+.select .wu,li:hover .wu{
+	background-position: -43px -21px;
+}
+.qun{
+	width:16px;
+	height:17px;
+	background-position: -63px 0;
+}
+.select .qun,li:hover .qun{
+	background-position: -63px -21px;
+}
+.man{
+	width:16px;
+	height:17px;
+	background-position: -83px -1px;
+}
+.select .man,li:hover .man{
+	background-position: -83px -22px;
+}
+.xiaojiang{
+	width:35px;
+	height:18px;
+	background-position: -107px -1px;
+}
+.select .xiaojiang,li:hover .xiaojiang{
+	background-position: -107px -23px;
+}
+.feiyu{
+	width:34px;
+	height:19px;
+	background-position: -148px -1px;
+}
+.select .feiyu,li:hover .feiyu{
+	background-position: -148px -23px;
+}
+.xuanjia{
+	width:34px;
+	height: 18px;
+	background-position: -189px -1px;
+}
+.select .xuanjia,li:hover .xuanjia{
+	background-position: -189px -23px;
+}
+.ceshi{
+	width:34px;
+	height:18px;
+	background-position: -233px -1px;
+}
+.select .ceshi,li:hover .ceshi{
+	background-position: -233px -23px;
+}
+.zhudong{
+	width:34px;
+	height:17px;
+	background-position: -227px -142px;
+}
+.select .zhudong,li:hover .zhudong{
+	background-position: -149px -142px;
+}
+.beidong{
+	width:35px;
+	height:17px;
+	background-position: -264px -142px;
+}
+.select .beidong,li:hover .beidong{
+	background-position: -187px -143px;
+}
+
+
+.d_shu{
+	width:140px;
+	height:35px;
+	background-position: 0 -53px;
+}
+.d_wei{
+	width:140px;
+	height:35px;
+	background-position: 0 -90px;
+}
+.d_wu{
+	width: 140px;
+	height: 35px;
+	background-position: 0 -126px;
+}
+.d_qun{
+	width: 70px;
+	height: 35px;
+	background-position: 0 -163px;
+}
+.d_man{
+	width: 140px;
+	height: 35px;
+	background-position: 0 -200px;
+}
+.d_xiaojiang{
+	width:69px;
+	height: 35px;
+	background-position: -228px -94px;
+}
+.d_feiyu{
+	width: 67px;
+	height: 35px;
+	background-position: -154px -94px;
+}
+.d_xuanjia{
+	width:68px;
+	height:34px;
+	background-position: -227px -54px;
+}
+.d_ceshi{
+	width:68px;
+	height:35px;
+	background-position: -152px -54px;
+}
+.d_zhudong{
+	width: 139px;
+	height: 35px;
+	background-position: -154px -164px;
+}
+.d_beidong{
+	width: 139px;
+	height: 35px;
+	background-position: -153px -200px;
+}

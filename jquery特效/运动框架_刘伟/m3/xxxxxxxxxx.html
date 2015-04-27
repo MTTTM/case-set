@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<button id="btn">点击我</button>
+<ul id="box"><li>Coffee</li><li>Tea</li></ul>
+</body>
+</html>
+<script type="text/javascript">
+
+    /*var itm=document.getElementById("myList1").firstChild;
+    var cln=itm.cloneNode(true);
+    document.getElementById("myList1").appendChild(cln);*/
+var box=document.getElementById("box");
+    var create=box.lastChild.cloneNode(true);
+    box.appendChild(create);
+
+
+</script>

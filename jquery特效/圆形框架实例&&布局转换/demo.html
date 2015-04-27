@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #main{width:200px;height:200px;position: fixed;background:red;overflow: hidden;}
+        #close{width:30px;height:30px;position: absolute;top:1px;right:1px;cursor:pointer;line-height: 30px;text-align: center;background:#fff;}
+        .line{width:0;height:2000px;border-left:1px solid green;position:fixed;left:50%;margin-left:-100px;}
+    </style>
+    <script type="text/javascript" src="miaov.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var main=document.getElementById("main");
+            var close=document.getElementById("close");
+            console.log(main)
+            main.style.top="50%";
+            main.style.left="50%";
+            main.style.marginTop=-main.offsetHeight/2+"px";
+            main.style.marginLeft=-main.offsetWidth/2+"px";
+            close.onclick=function()
+            {
+
+                miaovStartMove(main, {width:0,height:0,marginTop:0,marginLeft:0}, MIAOV_MOVE_TYPE.BUFFER);
+                setTimeout(function(){
+                    miaovStartMove(main, {width:200,height:200,marginTop:-100,marginLeft:-100}, MIAOV_MOVE_TYPE.BUFFER);
+                },3000)
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="main">
+<div id="close">X</div>
+</div>
+<div class="line"></div>
+</body>
+</html>

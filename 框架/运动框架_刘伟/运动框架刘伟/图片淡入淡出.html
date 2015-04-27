@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        img{opacity:0.3;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var img=document.getElementById("img");
+            img.onmouseover=function()
+            {
+                startMove(this,{"opacity":"100"},10);
+            }
+            img.onmouseout=function()
+            {
+                startMove(this,{"opacity":"30"},-10);
+            }
+         }
+        function startMove(obj,json,iSpeed)
+        {
+            clearInterval(obj.timer);
+            var iCur=0;
+            obj.timer=setInterval(function()
+            {
+                for(var attr in json)
+                {
+                    var iTarget=json[attr];
+                    if(attr=="opacity")
+                    {
+                        iCur=Math.round(css(obj,"opacity")*100);
+                    }
+                    if(iCur!=iTarget)
+                    {
+                        if(attr=="opacity")
+                        {
+                            obj.style.opacity=(iCur+iSpeed)/100;
+                            obj.style.filter="alpha(opacity="+(iCur+iSpeed)+")"
+                        }
+                    }
+                }
+            },30)
+
+        }
+        function css(obj, attr)
+        {
+            if (obj.currentStyle)
+            {
+                return obj.currentStyle[attr];
+            }
+            else
+            {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="1.jpg" id="img"/>
+</body>
+</html>

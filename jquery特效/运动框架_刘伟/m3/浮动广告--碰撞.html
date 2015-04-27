@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box{width:100px;height:100px;position:absolute;left:0;top:0;background:red;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var box=document.getElementById("box");
+            var timer=null;
+            var speedX=10;
+            var speedY=10;
+            startMove();
+            function startMove()
+            {
+                timer=setInterval(function()
+                {
+                    var L=box.offsetLeft+speedX;
+                    var T=box.offsetTop+speedY;
+
+                    if(T>document.documentElement.clientHeight - box.offsetHeight){
+                    T = document.documentElement.clientHeight - box.offsetHeight;
+                    speedY *= -1;
+                }
+                    else if(T<0){
+                    T = 0;
+                    speedY *= -1;
+                }
+56=
+                    if(L>document.documentElement.clientWidth-box.offsetWidth)
+                    {
+                        L = document.documentElement.clientWidth - box.offsetWidth;
+                        speedX*=-1;
+                    }
+                    else if(L<0)
+                    {
+                        L=0;
+                        speedX*=-1;
+                    }
+
+                    box.style.left=L+"px";
+                    box.style.top=T+"px";
+                },30)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="jQuery.fn.js"></script>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        .box{width:302px;height:auto;}
+        .th{height:32px;width:300px;height:30px;}
+        .th .on{background:#000;}
+        .th li{width:30px;height:30px;background:olivedrab;margin:1px;float:left;text-align: center;line-height: 30px;}
+        .bd{height:250px;width:300px;overflow:hidden;border:1px solid #000000;}
+        .bd li{width:300px;height:250px;text-align: center;line-height: 250px;}
+        .bd li:nth-of-type(1){background:red;  }
+        .bd li:nth-of-type(2){background:blueviolet;}
+        .bd li:nth-of-type(3){background:darkcyan;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="th"><li>1</li><li>2</li><li>3</li></ul>
+    <ul class="bd"><li>1</li><li>2</li><li>3</li></ul>
+</div>
+<script type="text/javascript">
+    var boxs=$(".box");
+    var ths=boxs.find(".th li");
+    var bds=boxs.find(".bd li");
+    var iNow=0;
+    ths.click(function()
+    {
+        iNow=ths.index(this);
+        boxs.tt(iNow,ths);
+        boxs.bd(iNow,bds);
+    });
+
+</script>
+</body>
+</html>

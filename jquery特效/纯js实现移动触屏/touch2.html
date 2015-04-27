@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden;}
+        .clearfix {zoom: 1;}
+        .banWrap{position: relative;width:100%;height:202px;overflow: hidden;}
+        ul{list-style: none;position: absolute;left:0;}
+        li{float:left;}
+        li img{width:100%;}
+    </style>
+    <script type="text/javascript" src="http://www.lcefox.com.cn/jq1.8.js"></script>
+</head>
+
+<body>
+<div class="banWrap clearfix">
+    <ul class="clearfix">
+        <li><img src="images/pat1_4.jpg"/></li>
+        <li><img src="images/pat1_1.jpg"/></li>
+        <li><img src="images/pat1_2.jpg"/></li>
+        <li><img src="images/pat1_3.jpg"/></li>
+        <li><img src="images/pat1_4.jpg"/></li>
+        <li><img src="images/pat1_1.jpg"/></li>
+    </ul>
+</div>
+<button><<</button><button>>></button>
+<script type="text/javascript">
+    var banWrap=$(".banWrap");
+    var oUl=$("ul");
+    var oLi=$("li");
+    var btn=$("button");
+    oLi.css({width:window.innerWidth});
+    var w=oLi.width();
+    oUl.width(oLi[0].offsetWidth*6);
+    oUl.css({left:-oLi.width()});
+    var iNow=1;
+    btn.eq(0).click(function(){
+        if(!oUl.is(":animated"))
+        {
+            iNow++;
+            oUl.animate({left:-iNow*w},300,function(){
+                if(iNow==5)
+                {
+                    iNow=1;
+                    oUl.css({left:-iNow*w});
+                }
+            })
+        }
+
+    });
+    btn.eq(1).click(function(){
+        if(!oUl.is(":animated"))
+        {
+            iNow--;
+            oUl.animate({left:-iNow*w},300,function()
+            {
+                if(iNow==0)
+                {
+                    iNow=oLi.length - 2;
+                    oUl.css({left:-iNow*w});
+                }
+            })
+        }
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div style="width:200px;height:200px;background:red;"></div>
+<script>
+    var dd="mouseout";
+    $("div").on(dd,function(e)
+    {
+        if(e.originalEvent.type=="mouseover")
+        {
+            alert("mouseover")
+        }
+        if(e.originalEvent.type=="mouseout")
+        {
+            alert("mouseout")
+        }
+    })
+</script>
+</body>
+</html>

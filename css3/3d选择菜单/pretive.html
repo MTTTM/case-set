@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .nav{margin:0;padding:50px;}
+        .nav li{float:left;list-style:none;-webkit--moz-perspective:100px;-moz-perspective:100px;}/*添加景深*/
+        .nav a{float:left;position:relative;font:14px/30px "宋体";text-decoration: none; -webkit-transform-style:preserve-3d; transform-style:preserve-3d;transition:.5s; -webkit-transform-origin:center center -15px;transform-origin:center center -15px;}/*添加3d环境和旋转基点*/
+        .nav  span{float:left;background:red;width:60px;text-align: center;}
+        .nav span:nth-of-type(1){position: absolute;left:0;bottom:-30px;background:dodgerblue;-webkit-transform-origin:top;-webkit-transform:rotateX(-90deg);}/*添加旋转基点和旋转角度*/
+        .nav a:hover{-webkit-transform:rotateX(90deg);}/*鼠标经过翻转a*/
+    </style>
+</head>
+<body>
+<ul class="nav">
+    <li>
+        <a href="#">
+            <span>选项-</span>
+            <span>选项1</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span>选项二</span>
+            <span>选项2</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span>选项三</span>
+            <span>选项3</span>
+        </a>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<style>
+    *{margin:0;padding:0;}
+    ul{list-style: none;}
+    .box{width:300px;height:300px;overflow: hidden; margin:30px;}
+    .box .tt{height:30px;}
+    .box .tt li{width:30px;height:30px;background:red;float:left;margin:1px;text-align: center;line-height: 30px;cursor: pointer;}
+    .box .tt .active{background:orange;}
+    .box .bd{height:268px;}
+    .box .bd li{height:266px;margin-top:2px;color:#fff;text-align: center;line-height: 266px;}
+    .box .bd li:nth-of-type(1){background:blueviolet}
+    .box .bd li:nth-of-type(2){background:darkcyan}
+    .box .bd li:nth-of-type(3){background:darkkhaki}
+</style>
+</head>
+<body>
+<div class="box">
+    <div class="tt">
+        <ul><li>1</li><li>2</li><li>3</li></ul>
+    </div>
+    <div class="bd">
+        <ul><li>1</li><li>2</li><li>3</li></ul>
+    </div>
+</div>
+<div class="box">
+    <div class="tt">
+        <ul><li>1</li><li>2</li><li>3</li></ul>
+    </div>
+    <div class="bd">
+        <ul><li>1</li><li>2</li><li>3</li></ul>
+    </div>
+</div>
+<script type="text/javascript">
+   /* $.fn.extend({
+        dd:function(tit,bod)
+        {
+            var _this=this;
+           _this.each(function()
+            {
+                _this.iNow=0;
+                console.log( _this.iNow);
+                _this.tt=_this.find(tit);
+                _this.bd=_this.find(bod);
+                tab();
+                _this.tt.click(function()
+                {
+                    _this.iNow=_this.tt.index(this);
+                    tab();
+                });
+
+                function tab()
+                {
+                    _this.tt.eq(_this.iNow).addClass("active").siblings().removeClass("active");
+                    _this.bd.eq(_this.iNow).fadeIn().siblings().fadeOut();
+                }
+            });
+
+        }
+    });*/
+   $.fn.extend({
+       dd:function(tit,bod)
+       {
+
+           $(this).each(function()
+           {
+               var iNow=0;
+               var tt=$(this).find(tit);
+               var bd=$(this).find(bod);
+               tab();
+              tt.click(function()
+               {
+                   iNow=tt.index(this);
+                   tab();
+               });
+
+               function tab()
+               {
+                   tt.eq(iNow).addClass("active").siblings().removeClass("active");
+                   bd.eq(iNow).fadeIn().siblings().fadeOut();
+               }
+           });
+
+       }
+   });
+    $(".box").dd(".tt li",".bd li");
+    /*
+
+    var tt=$(".tt li");
+    var bd=$(".bd li");
+    var iNow=0;
+    tab();
+    tt.click(function()
+    {
+        iNow=tt.index(this);
+        tab();
+    });
+    function tab()
+    {
+     tt.eq(iNow).addClass("active").siblings().removeClass("active");
+        bd.eq(iNow).fadeIn().siblings().fadeOut();
+    }*/
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/leftLoop.js"></script>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        .box{position:relative;width:465px;height:490px;margin:0 auto;border:2px solid #ccc;overflow: hidden;}
+        .box .th{height:25px;}
+         .box .th li{width:15px;height:15px;margin:5px;float:left;border-radius: 50%;background:burlywood;text-indent: -999999em;}
+        .box .th .on{background:red;}
+        .box .bd{position: relative;width:465px;height:465px;}
+        .box .bd ul{position: absolute;left:0;top:0;z-index:10;}
+        .box .bd li{float:left;width:465px;height:465px;}
+        .box .bd li img{display: block;width:465px;height:465px;}
+        .box .prev,.box .next{display: block;position:absolute;width:50px;height:50px;font-size:20px;line-height:50px;text-align:center;color:#fff;text-decoration:none;background:black;opacity: 0.3;filter:alpha(30);z-index:30;}
+        .box .prev:hover,.box .next:hover{opacity: 0.5;filter:alpha(50);}
+        .box .prev{left:0;top:200px;}
+        .box .next{right:0;top:200px;}
+    </style>
+</head>
+<body>
+  <div class="box">
+      <a href="javascript:;" class="prev"><<</a>
+      <a href="javascript:;" class="next">>></a>
+      <div class="th">
+          <ul>
+          </ul>
+      </div>
+      <div class="bd">
+          <ul>
+              <li><img src="images/p20.jpg"/></li>
+              <li><img src="images/p21.jpg"/></li>
+              <li><img src="images/p22.jpg"/></li>
+          </ul>
+      </div>
+  </div>
+  <div class="box">
+      <a href="javascript:;" class="prev"><<</a>
+      <a href="javascript:;" class="next">>></a>
+      <div class="th">
+          <ul>
+          </ul>
+      </div>
+      <div class="bd">
+          <ul>
+              <li><img src="images/p20.jpg"/></li>
+              <li><img src="images/p21.jpg"/></li>
+              <li><img src="images/p22.jpg"/></li>
+          </ul>
+      </div>
+  </div>
+<script type="text/javascript">
+  $(function(){
+         $(".box").imgLoop("2000",true,"left",2000,".th",".bd");
+  });
+</script>
+</body>
+</html>

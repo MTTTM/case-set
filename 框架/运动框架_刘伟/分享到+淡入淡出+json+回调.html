@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style  type="text/css">
+        .box{position: absolute;left:-100px;width:100px;height:300px;background:green;}
+        .fx{position: absolute;right:-30px;top:80px;width:30px;height:80px;background:black;color:#fff;text-align: center;font-size: 20px;}
+        img{position: absolute;left:300px;opacity:0.3;}
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="fx" id="fxd">分享到</div>
+</div>
+<img src="1.jpg" id="img"/>
+</body>
+</html>
+<script type="text/javascript">
+    var box=document.getElementById("box");
+    var fxd=document.getElementById("fxd");
+    var oImg=document.getElementById("img");
+    box.onmouseover=function()
+    {
+        startMove(this,{left:0},10,function()
+        {
+            startMove(this,{height:600},10)
+        });
+    };
+    box.onmouseout=function()
+    {
+        startMove(this,{height:300},-10,function()
+        {
+            startMove(this,{left:-100},-10)
+        });
+    };
+    oImg.onmouseover=function()
+    {
+        startMove(this,{opacity:"100"},10)
+    };
+    oImg.onmouseout=function()
+    {
+        startMove(this,{opacity:"30"},-10)
+    };
+    function startMove(obj,json,iSpeed,fn)
+    {
+        clearInterval(obj.timer);
+        var iCur=0;
+
+
+        obj.timer=setInterval(function()
+        {
+            var iBtn=true;//定时器每走一次 就把所有属性都执行一次
+            for(var attr in json)
+            {
+                var itarget=json[attr];//得到每个目标点
+                if(attr=="opacity")
+                {
+                    iCur=Math.round(css(obj,"opacity")*100);
+                }
+                else
+                {
+                    iCur=parseInt(css(obj,attr));
+                }
+                if(iCur!=itarget)//判断是否所有的值都达到目标
+                {
+                    iBtn=false;
+                    if(attr=="opacity")
+                    {
+                        obj.style.opacity=(iCur+iSpeed)/100;
+                        obj.style.filter="alpha(opacity="+(iCur+iSpeed)+")"
+                    }
+                    else
+                    {
+                        obj.style[attr]=iCur+iSpeed+"px";
+                    }
+                }
+
+            }
+            if(iBtn)
+            {
+                clearInterval(obj.iTimer);
+                fn&&fn.call(obj); //回调
+
+            }
+        },30)
+    }
+
+    function css(obj, attr)
+    {
+        if (obj.currentStyle)
+        {
+            return obj.currentStyle[attr];
+        }
+        else
+        {
+            return getComputedStyle(obj, false)[attr];
+        }
+    }
+
+</script>

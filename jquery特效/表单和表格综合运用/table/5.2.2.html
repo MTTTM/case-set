@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .even{background:#fff38f;}
+        .odd{background:#ffffee;}
+        .selected{background:olive;}
+    </style>
+    <script type="text/javascript" src="jquery1.42.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("tbody>tr:odd").addClass("odd");
+            $("tbody>tr:even").addClass("even");
+            $("tbody>tr").click(function(){
+                $(this).addClass("selected").siblings().removeClass("selected").end().find(":radio").attr("checked",true)
+            })
+        })
+    </script>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>暂住地</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>张三</td><td>男</td><td>浙江</td></tr>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>李四</td><td>男</td><td>浙江</td></tr>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>王五</td><td>男</td><td>广州</td></tr>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>马六</td><td>男</td><td>长沙</td></tr>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>赵七</td><td>男</td><td>北京</td></tr>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>Rain</td><td>女</td><td>上海</td></tr>
+    <tr><td><input type="radio" value="name" name="name"/></td><td>MAXMAN</td><td>女</td><td>杭州</td></tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta name="Keywords" content="SuperSlide,jQuery文字无缝滚动特效,javascript文字无缝滚动特效">
+    <meta name="Description" content="SuperSlide 致力于解决网站大部分特效展示问题，使网站代码规范整洁，方便维护更新。网站上常用的“焦点图/幻灯片”、“Tab标签切换”、“图片滚动”、“无缝滚动”等等只需要一个SuperSlide即可解决！还可以多个SuperSlide组合创造更多效果">
+    <title>SuperSlide - 文字无缝滚动特效-上</title>
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+<style type="text/css">
+    /* css 重置 */
+    *{margin:0; padding:0; list-style:none; }
+    body{ background:#fff; font:normal 12px/22px 宋体;  }
+    img{ border:0;  }
+    a{ text-decoration:none; color:#333;  }
+    a:hover{ color:#1974A1;  }
+
+
+    /* 本例子css */
+    .txtMarquee-top{ width:450px;  overflow:hidden;float:left;margin-right:20px; position:relative;  border:1px solid #ccc;   }
+    .txtMarquee-top .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+    .txtMarquee-top .hd .prev,.txtMarquee-top .hd .next{ display:block;  width:9px; height:5px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+        cursor:pointer; background:url("../images/arrow.png") 0 -100px no-repeat;}
+    .txtMarquee-top .hd .next{ background-position:0 -140px;  }
+    .txtMarquee-top .hd .prevStop{ background-position:-60px -100px;  }
+    .txtMarquee-top .hd .nextStop{ background-position:-60px -140px;  }
+    .txtMarquee-top .bd{ padding:15px; height:120px;overflow:hidden;position: relative;  }
+    .txtMarquee-top .bd ul{zoom:1;position: absolute;top:0; }
+    .txtMarquee-top .infoList li{ height:24px; line-height:24px;   }
+    .txtMarquee-top .infoList li .date{ float:right; color:#999;  }
+
+    /*textMarquee-bottom*/
+    .textMarquee-bottom{ width:450px;  overflow:hidden;float:left;margin-right:20px; position:relative;  border:1px solid #ccc;   }
+    .textMarquee-bottom .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+    .textMarquee-bottom .hd .prev,.textMarquee-bottom .hd .next{ display:block;  width:9px; height:5px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+        cursor:pointer; background:url("../images/arrow.png") 0 -100px no-repeat;}
+    .textMarquee-bottom .hd .next{ background-position:0 -140px;  }
+    .textMarquee-bottom .hd .prevStop{ background-position:-60px -100px;  }
+    .textMarquee-bottom .hd .nextStop{ background-position:-60px -140px;  }
+    .textMarquee-bottom .bd{ padding:15px; height:120px;overflow:hidden;position: relative;  }
+    .textMarquee-bottom .bd ul{zoom:1;position: absolute;top:0; }
+    .textMarquee-bottom .infoList li{ height:24px; line-height:24px;   }
+    .textMarquee-bottom .infoList li .date{ float:right; color:#999;  }
+/*textMarquee-left*/
+    .textMarquee-left{ width:450px;  overflow:hidden;float:left;margin-right:20px; position:relative;  border:1px solid #ccc;   }
+    .textMarquee-left .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+    .textMarquee-left .hd .prev,.textMarquee-left .hd .next{ display:block;  width:8px; height:9px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+        cursor:pointer; background:url("../images/arrow.png") no-repeat;}
+    .textMarquee-left .hd .next{ background-position:0 -50px;  }
+    .textMarquee-left .hd .next{ background-position:0 -50px;  }
+    .textMarquee-left .hd .prevStop{ background-position:-60px -100px;  }
+    .textMarquee-left .hd .nextStop{ background-position:-60px -140px;  }
+    .textMarquee-left .bd{ padding:15px;overflow:hidden;position: relative;  }
+    .textMarquee-left .bd ul{zoom:1;position: absolute;top:0; }
+    .textMarquee-left .bd li{width:450px;}
+    .textMarquee-left .infoList li{ height:24px;float:left; line-height:24px;   }
+    .textMarquee-left .infoList li .date{ float:right; color:#999;padding-right:20px;  }
+    /*textMarquee-right*/
+    .textMarquee-right{ width:450px;  overflow:hidden;float:left;margin-right:20px; position:relative;  border:1px solid #ccc;   }
+    .textMarquee-right .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+    .textMarquee-right .hd .prev,.textMarquee-right .hd .next{ display:block;  width:8px; height:9px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+        cursor:pointer; background:url("../images/arrow.png") no-repeat;}
+    .textMarquee-right .hd .next{ background-position:0 -50px;  }
+    .textMarquee-right .hd .next{ background-position:0 -50px;  }
+    .textMarquee-right .hd .prevStop{ background-position:-60px -100px;  }
+    .textMarquee-right .hd .nextStop{ background-position:-60px -140px;  }
+    .textMarquee-right .bd{ padding:15px;overflow:hidden;position: relative;  }
+    .textMarquee-right .bd ul{zoom:1;position: absolute;top:0; }
+    .textMarquee-right .bd li{width:450px;}
+    .textMarquee-right .infoList li{ height:24px;float:left; line-height:24px;   }
+    .textMarquee-right .infoList li .date{ float:right; color:#999;padding-right:20px;  }
+</style>
+
+
+<div class="txtMarquee-top" id="txtMarquee-top">
+    <div class="hd">
+        <a class="next"></a>
+        <a class="prev"></a>
+    </div>
+    <div class="bd">
+        <ul class="infoList">
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">1中国打破了世界软件巨头规则</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2口语：会说中文就能说英语！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">3农场摘菜不如在线学外语好玩</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">4数理化老师竟也看学习资料？</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">5学英语送ipad2,45天突破听说</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">6学外语，上北外！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">7那些无法理解的荒唐事</a></li>
+        </ul>
+    </div>
+</div>
+<div class="textMarquee-bottom" id="txtMarquee-bottom">
+    <div class="hd">
+        <a class="next"></a>
+        <a class="prev"></a>
+    </div>
+    <div class="bd">
+        <ul class="infoList">
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">1中国打破了世界软件巨头规则</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2口语：会说中文就能说英语！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">3农场摘菜不如在线学外语好玩</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">4数理化老师竟也看学习资料？</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">5学英语送ipad2,45天突破听说</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">6学外语，上北外！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">7那些无法理解的荒唐事</a></li>
+        </ul>
+    </div>
+</div>
+<div class="textMarquee-left" id="txtMarquee-left">
+    <div class="hd">
+        不推荐使用
+        <a class="next"></a>
+        <a class="prev"></a>
+    </div>
+    <div class="bd">
+        <ul class="infoList" >
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">1中国打破了世界软件巨头规则</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2口语：会说中文就能说英语！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">3农场摘菜不如在线学外语好玩</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">4数理化老师竟也看学习资料？</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">5学英语送ipad2,45天突破听说</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">6学外语，上北外！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">7那些无法理解的荒唐事</a></li>
+        </ul>
+    </div>
+</div>
+<div class="textMarquee-right" id="txtMarquee-right" >
+    <div class="hd">
+        不推荐使用
+        <a class="next"></a>
+        <a class="prev"></a>
+    </div>
+    <div class="bd">
+        <ul class="infoList">
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">1中国打破了世界软件巨头规则</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2口语：会说中文就能说英语！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">3农场摘菜不如在线学外语好玩</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">4数理化老师竟也看学习资料？</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">5学英语送ipad2,45天突破听说</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">6学外语，上北外！</a></li>
+            <li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">7那些无法理解的荒唐事</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="marquee.js"></script>
+<script type="text/javascript">
+    Marquee(".txtMarquee-top","top","50");
+    Marquee(".textMarquee-bottom","bottom","50");
+    Marquee(".textMarquee-left","left","200");
+    Marquee(".textMarquee-right","right","200");
+</script>
+</body>
+</html>
+
+

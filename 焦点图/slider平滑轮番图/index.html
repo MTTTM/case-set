@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit"/>
+<title>jquery平滑轮番图-一个页面调用多个轮番图</title>
+<link rel="stylesheet" href="css/slider.css" />
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/trunsBox.js"></script>
+<style>
+.slider-box{float:left; margin-right:20px;}
+</style>
+</head>
+
+<body>
+
+<div class="slider-box">
+	<ul>
+      <li><a href="#"><img src="images/p20.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p21.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p22.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p23.jpg" alt=""></a></li>
+    </ul>
+    <span class="prev"><</span>
+    <span class="next">></span>
+</div>
+
+<div class="slider-box">
+	<ul>
+      <li><a href="#"><img src="images/p20.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p21.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p22.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p23.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p23.jpg" alt=""></a></li>
+    </ul>
+    <span class="prev"><</span>
+    <span class="next">></span>
+</div>
+
+
+<div class="slider-box">
+	<ul>
+      <li><a href="#"><img src="images/p20.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p21.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p22.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p23.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p23.jpg" alt=""></a></li>
+      <li><a href="#"><img src="images/p23.jpg" alt=""></a></li>
+    </ul>
+    <span class="prev"><</span>
+    <span class="next">></span>
+</div>
+
+
+
+<script>
+$( function(){
+
+	$(".slider-box").trunsBox();  //调用插件*/
+
+});	
+</script>
+</body>
+</html>

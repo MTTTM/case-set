@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Cookie</title>
+    <style type="text/css">
+        div{color:#012663;font-weight: bold;}
+        div#des{width:1000px;height:auto;margin:10px auto;background:blanchedalmond;border:5px double blue;}
+        p{text-indent: 2em;}
+        span{color:#7a8bd1;margin:auto 10px;}
+    </style>
+    <script type="text/javascript">
+        //封装cookie功能a
+        //设置cookie
+        function setCookie(key,value,t) //name，value，过期值
+        {
+            var oDate=new Date();
+            oDate.setDate(oDate.getDate()+t);
+            document.cookie=key+"="+value+";expires="+oDate.toGMTString();
+        }
+        //获取cookie
+        function getCookie(key)
+        {
+            var arr1=document.cookie.split(";");
+            for(var i=0;i<arr1.length;i++)
+            {
+                var arr2=arr1[i].split("=");//从cookies中读取到的cookies内容是以键值对的形式保存的，useTheme=aaa;然后按照split('=')分割以后，产生了一个长度为2的数组
+                if(arr2[0]==key)//arr2【0】对应的是cookie的名称
+                {
+                    return decodeURI(arr2[1]);//arr2【1】对应的是cookie的值
+                }
+            }
+        }
+        //删除cookie
+        function removeCookie(key)
+        {
+            setCookie(key,"",-1);
+        }
+        //alert(getCookie("usename"))
+        // alert(decodeURI(document.cookie))//解码后输出
+
+
+        //登陆实例演示
+        var theme={moren:"moren.jpg",cun:"cun.jpg",xia:"xia.jpg",qiu:"qiu.jpg",dong:"dong.jpg"};
+        var sttr=null;
+        var index=null;
+    window.onload=function()
+    {
+       var radios=document.getElementsByTagName("input");
+       if(getCookie("useTheme"))   //先判断是否有cookie，如果有就获取
+         {
+             var body=document.body||document.documentElement;
+             body.style.background="url("+theme[getCookie("useTheme")]+") no-repeat";
+             document.body.style.backgroundSize="100%";
+             //同步radio
+             for(var i = 0;i<radios.length;i++){
+                 if(radios[i].value==getCookie("useTheme")){
+                     radios[i].checked = true;
+                 }
+             }
+         }
+        else  //如果没有就默认第一个
+       {
+           radios[0].checked="checked";
+           sttr=radios[0].value;
+           changeTheme();
+       }
+           //保存cookie，同时操作当前动作
+             for(var i=0;i<radios.length;i++)
+             {
+                 radios[i].index=i;
+                 radios[i].onclick=function()
+                 {
+                     this.checked="checked";
+                     sttr=this.value;
+                     index=this.index;
+                     //alert(index);
+                     setCookie("useTheme",sttr,5);
+                     changeTheme();  //调用当前需要运行的动作
+                 };
+
+
+             }
+    };
+        function changeTheme() //当前需要运行的动作
+        {
+            var body=document.body||document.documentElement;
+            body.style.background="url("+theme[sttr]+") no-repeat";
+            document.body.style.backgroundSize="100%";
+        }
+    </script>
+</head>
+<body>
+<div id="box" style="width:1000px;text-align:center;margin:50px auto;background:yellowgreen;border:5px double blue;">
+    <span>Cookie换主题实例：</span>
+   <input type="radio" name="主题" value="moren"/>默认
+   <input type="radio" name="主题" value="cun"/>春天
+  <input type="radio" name="主题" value="xia"/>夏天
+  <input type="radio" name="主题" value="qiu"/>秋天
+  <input type="radio" name="主题" value="dong"/>冬天
+    <span>刷新后还能保存用户原来的数据</span>
+</div>
+<div id="des">
+
+   <p> Cookie:存蓄数据,当用户访问某个网站的时候，可以把数据保存在用户本地浏览器上</p>
+    <p> 1.不同的浏览器存放的Cookie的地方不一样，不能互相调用</p>
+    <p> 2.Cookie是以域名的形式来区分保存的，不同域名间是不能互相访问的</p>
+    <p> 3.Cookie可设置名字</p>
+    <p>4.格式 document.cookie="name=value;age=value"</p>
+    <p> 5:我们想获取Cookie中的某个cookie，可惜Cookie获取的是所有的值</p>
+    <p> 6.Cookie的存蓄是有限制的</p>
+    <p>7.Cookie默认是临时存蓄，如果想长时间存放，需要在设置cookie的时候同时设置过期时间,格式:document.cookie="name=value;name=value;expires"+Time;Time必须用字符串的方式</p>
+
+    <p> var oDate=new Date();</p>
+    <p> oDate.setDate(oDate.getDate()+5);</p>
+    <p>document.cookie="usename="+encodeURI('Leo\n你好')+";expires="+oDate.toGMTString();</p>
+    <p>//对于特殊符号转码后保存          把时间转换为字符串格式</p>
+    <p>document.cookie="age=23";</p>
+    <p>8.建议你了解一下B/S通信原理</p>
+</div>
+</body>
+</html>

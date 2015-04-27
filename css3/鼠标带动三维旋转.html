@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>三维旋转木马</title>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+div {
+	position:absolute;
+	font-size:300px;
+	text-align:center;
+	color:#FFF;
+}
+</style>
+<script>
+window.onload = function () {
+	
+	var aDiv = document.getElementsByTagName('div');
+	var cR = 400;
+	var iL = 500;
+	var angle = 0;
+	var num = 1;
+	var color = ['#0f0','#f00','#00f','#ff0','#f0f','#0ff','#f80','#90f','#60f'];
+	
+	document.onmousemove = function (ev) {
+		var ev = ev || window.event;
+		num = (ev.clientX - iL)/100;
+	};
+	
+	function move() {
+		
+		angle += num;
+		
+		for (var i = 0;i < aDiv.length;i ++) {
+			
+			var a = Math.cos((angle +  i * 45) * Math.PI / 180) * cR;
+			var b = Math.sin((angle + i * 45) * Math.PI / 180) * cR;
+			
+			aDiv[i].style.width = b / cR * 100 + 300 + 'px';
+			aDiv[i].style.height = b / cR * 100 + 200 + 'px';
+					
+			aDiv[i].style.left = a + iL - (Math.sin((angle + i * 45) * Math.PI / 180) * 100 ) / 2 +  'px';
+			aDiv[i].style.top = 100 - (Math.sin((angle + i * 45) * Math.PI / 180) * 100 ) / 2 + 'px';
+			aDiv[i].style.zIndex = Math.round(Math.sin((angle + i * 45) * Math.PI / 180) * 10);
+			aDiv[i].style.background = color[i];
+			
+		};
+	};
+	
+	setInterval(move,30);
+	
+};
+</script>
+</head>
+
+<body>
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+
+</body>
+</html>

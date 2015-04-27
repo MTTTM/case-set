@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!--header started-->
+    <div class="nav w980">
+        <ul>
+            <li><a href="#" target="_blank">网站首页</a></li>
+            <li><a href="#" target="_blank">医院概况</a>
+                <div class="nav_nav">
+                    <ul>
+                        <li><a href="#" target="_blank">医院简介</a></li>
+                        <li><a href="#" target="_blank">医院历史</a></li>
+                        <li><a href="#" target="_blank">医院荣誉</a></li>
+                        <li><a href="#" target="_blank">党政建设</a></li>
+                        <li><a href="#" target="_blank">特色医疗</a></li>
+                        <li><a href="#" target="_blank">医院环境</a></li>
+                        <li class="bt0"><a href="#" target="_blank">地理位置</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" target="_blank">武警新闻 </a>
+                <div class="nav_nav">
+                    <ul>
+                        <li><a href="#" target="_blank">医院新闻</a></li>
+                        <li><a href="#" target="_blank">护理天地</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" target="_blank">专家介绍</a>
+                <div class="nav_nav">
+                    <ul>
+                        <li><a href="#" target="_blank">专家简介</a></li>
+                        <li><a href="#" target="_blank">专家预约</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" target="_blank">疾病诊疗</a>
+                <div class="nav_nav">
+                    <ul>
+                        <li><a href="#" target="_blank">甲亢</a></li>
+                        <li><a href="#" target="_blank">甲减</a></li>
+                        <li><a href="#" target="_blank">甲状腺肿大</a></li>
+                        <li><a href="#" target="_blank">甲状腺结节</a></li>
+                        <li><a href="#" target="_blank">甲状腺炎</a></li>
+                        <li><a href="#" target="_blank">甲状腺囊肿</a></li>
+                        <li class="bt0"><a href="#" target="_blank">甲状腺瘤</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" target="_blank">患者服务</a>
+                <div class="nav_nav">
+                    <ul>
+                        <li><a href="#" target="_blank">专家门诊预约</a></li>
+                        <li><a href="#" target="_blank">检查结果分析</a></li>
+                        <li><a href="#" target="_blank">医保窗口</a></li>
+                        <li><a href="#" target="_blank">费用咨询</a></li>
+                        <li><a href="#" target="_blank">免费电话</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#" target="_blank">就医指南</a></li>
+            <li><a href="#" target="_blank">在线挂号</a></li>
+            <li class="mr0"><a href="#" target="_blank">来院路线</a></li>
+        </ul>
+    </div>
+   <script type="text/javascript">
+        (function nav() {
+            var timer = null;
+            $(".nav li:has('.nav_nav')").mouseenter(function () {
+                var This = $(this);
+                timer = setTimeout(function () { This.find(".nav_nav").stop(false, true).slideDown(); }, 200)
+            });
+            $(".nav li:has('.nav_nav')").mouseleave(function () {
+                var This = $(this);
+                clearTimeout(timer);
+                This.find(".nav_nav").stop(false, true).slideUp();
+            })
+        })()
+
+    </script>
+</body>
+</html>

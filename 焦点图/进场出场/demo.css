@@ -1,0 +1,44 @@
+*{margin:0;margin:0;}
+ul{list-style: none}
+.banner{position: relative;width:100%;height:482px;overflow:hidden;background:url(bb.jpg) repeat-x;}
+.banner .bg{display: block;margin:0 auto;}
+ul li{width:80px;height:80px;position:absolute;color:#fff;text-align: center;line-height: 80px;}
+a{position: absolute;}
+.prev{left:80px;top:179px;width:0;height:0;border-top:30px solid transparent;border-bottom:30px solid transparent; border-right:40px solid deepskyblue;}
+.next{right:80px;top:179px;width:0;height:0;border-top:30px solid transparent;border-bottom:30px solid transparent; border-left:40px solid deepskyblue;}
+a:hover{opacity: 0.8;filter:alpha(opacity=80);}
+.a1{background:red;top:-80px;left:300px;}
+.a2{background:orchid;top:-80px;left:500px;}
+.a3{background:olive;top:-80px;left:780px;}
+
+.b1{background:oldlace;left:-80px;top:30px;}
+.b2{background:orangered;left:-80px;top:200px;}
+.b3{background:darkblue;left:-80px;top:320px;}
+
+.c1{background:honeydew;right:-80px;top:30px;}
+.c2{background:yellow;right:-80px;top:200px;}
+.c3{background:teal;right:-80px;top:300px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

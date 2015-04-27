@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #box{width:100px;height:100px;background:red;position: absolute;left:0;}
+    </style>
+    <title></title>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oInput=document.getElementById("input1");
+            var oDiv=document.getElementById("box");
+            var timer=null;
+            oInput.onclick=function()
+            {
+                startMove();
+            };
+            function startMove()
+            {
+                clearInterval(timer);
+                timer=setInterval(function()
+                {
+                   var iSpeed=10;
+                    oDiv.style.left=oDiv.offsetLeft+iSpeed+"px";
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="开始运动" id="input1"/>
+<div id="box"></div>
+</body>
+</html>

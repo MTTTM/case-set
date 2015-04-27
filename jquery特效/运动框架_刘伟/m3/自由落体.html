@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box{width:100px;height:100px;background:red;position: absolute;left:0;top:30px;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oDiv=document.getElementById("box");
+            var  btn=document.getElementById("btn");
+
+            var timer=null;
+            var speed=0;
+
+            btn.onclick=function()
+            {
+                startMove();
+            };
+
+            function startMove()
+            {
+                clearInterval(timer);
+                timer=setInterval(function()
+                {
+
+                    speed+=3;//不断的加速度
+                    var T=oDiv.offsetTop+speed;
+                    if(T>document.documentElement.clientHeight-oDiv.offsetHeight)//如果接触到浏览器底部或超过
+                    {
+                        T=document.documentElement.clientHeight-oDiv.offsetHeight;//就设置节点接触浏览器底部
+                        speed*=-1;//速度取反
+                        speed*=0.75;//重力摩擦
+                    }
+                    oDiv.style.top=T+"px";//执行
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="box"></div>
+</body>
+</html>

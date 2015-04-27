@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery1.42.min.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+           $(":input").focus(function(){
+               $(this).addClass("focus");
+           }).blur(function(){
+               $(this).removeClass("focus")
+           })
+        })
+    </script>
+    <style type="text/css">
+        .focus{
+            border:1px solid #f00;
+            background:#fcc;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>个人基本信息</legend>
+        <div>
+            <label>
+                名称：
+                <input id="username" type="text"/>
+            </label>
+        </div>
+        <div>
+            <label>
+                密码：
+                <input id="pass" type="password"/>
+            </label>
+        </div>
+        <div>
+            <label>
+                密码：
+               <textarea id="msg"></textarea>
+            </label>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>

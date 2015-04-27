@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="demo.css" type="text/css" rel="stylesheet"/>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+<div class="banner">
+    <a href="javascript:;" class="prev"></a>
+    <a href="javascript:;" class="next"></a>
+    <ul id="ul1">
+    <li class="a1">a1</li>
+    <li class="a2">a2</li>
+    <li class="a3">a3</li>
+</ul>
+    <ul id="ul2">
+        <li class="b1">b1</li>
+        <li class="b2">b2</li>
+        <li class="b3">b3</li>
+    </ul>
+    <ul id="ul3">
+        <li class="c1">c1</li>
+        <li class="c2">c2</li>
+        <li class="c3">c3</li>
+    </ul>
+   <img src="xx.jpg" class="bg">
+</div>
+<script type="text/javascript">
+ var iNow=0;
+ var iNow2=0;
+ firstIn();
+ $(".next").click(function(){
+    if(iNow2<2)
+     {
+         iNow2++;
+     }
+     else
+     {
+         iNow2=0;
+     }
+     Out();
+    // console.log(iNow2)
+ });
+ $(".prev").click(function(){
+     if(iNow2>0)
+     {
+         iNow2--;
+     }
+     else
+     {
+         iNow2=2;
+     }
+     Out();
+ });
+ function In()
+ {
+     //console.log("In : "+iNow);
+   switch (iNow)
+   {
+       case 0:
+           firstIn();
+       break;
+       case 1:
+           TwoIn();
+        break;
+       case 2:
+          threeIn();
+       break;
+       default :
+               alert(iNow);
+           break;
+   }
+ }
+ function Out()
+ {
+   ///  console.log("Out : "+iNow);
+     switch (iNow)
+     {
+         case 0:
+              firstOut();
+             break;
+         case 1:
+             TwoOut();
+             break;
+         case 2:
+             threeOut();
+             break;
+     }
+ }
+ /*下面是进场出场的动画*/
+ function firstIn()
+ {
+     var list1=[
+         function(){$(".a1").animate({"top":"100","opacity":"1"},list1Move)},
+         function(){$(".a2").animate({"top":"250","opacity":"1"},list1Move)},
+         function(){$(".a3").animate({"top":"350","opacity":"1"},list1Move)}
+     ];
+     $("#ul1").queue("move1",list1);
+     var list1Move=function()
+     {
+         $("#ul1").dequeue("move1");
+     };
+     $(".a1").animate({"top":"100"},list1Move)
+ }
+ function firstOut()
+ {
+     var list1=[
+         function(){$(".a3").animate({"top":"-80","opacity":"0"},200,list1Move)},
+         function(){$(".a2").animate({"top":"-80","opacity":"0"},200,list1Move)},
+         function(){$(".a1").animate({"top":"-80","opacity":"0"},200,function(){iNow=iNow2;In()})}
+        // function(){iNow=iNow2},
+     ];
+     $("#ul1").queue("move1",list1);
+     var list1Move=function()
+     {
+         $("#ul1").dequeue("move1");
+     };
+     $(".a1").animate({"top":"-80"},list1Move)
+ }
+ function TwoIn()
+ {
+     var list1=[
+         function(){$(".b1").animate({"left":"100","opacity":"1"},list1Move)},
+         function(){$(".b2").animate({"left":"350","opacity":"1"},list1Move)},
+         function(){$(".b3").animate({"left":"650","opacity":"1"},list1Move)}
+     ];
+     $("#ul2").queue("move1",list1);
+     var list1Move=function()
+     {
+         $("#ul2").dequeue("move1");
+     };
+     $(".b1").animate({"left":"100"},list1Move)
+ }
+ function TwoOut()
+ {
+     var list1=[
+         function(){$(".b3").animate({"left":"-80","opacity":"0"},200,list1Move)},
+         function(){$(".b2").animate({"left":"-80","opacity":"0"},200,list1Move)},
+         function(){$(".b1").animate({"left":"-80","opacity":"0"},200,function(){iNow=iNow2;In()})}
+     //    function(){iNow=iNow2},
+       //  In()
+     ];
+     $("#ul2").queue("move1",list1);
+     var list1Move=function()
+     {
+         $("#ul2").dequeue("move1");
+     };
+     $(".b1").animate({"left":"-80"},list1Move)
+ }
+ function threeIn()
+ {
+     var list1=[
+         function(){$(".c1").animate({"right":"650","opacity":"1"},list1Move)},
+         function(){$(".c2").animate({"right":"450","opacity":"1"},list1Move)},
+         function(){$(".c3").animate({"right":"350","opacity":"1"},list1Move)}
+     ];
+     $("#ul3").queue("move1",list1);
+     var list1Move=function()
+     {
+         $("#ul3").dequeue("move1");
+     };
+     $(".c1").animate({"right":"650"},list1Move)
+ }
+ function threeOut()
+ {
+     var list1=[
+         function(){$(".c3").animate({"right":"-80","opacity":"0"},200,list1Move)},
+         function(){$(".c2").animate({"right":"-80","opacity":"0"},200,list1Move)},
+         function(){$(".c1").animate({"right":"-80","opacity":"0"},200,function(){iNow=iNow2;In()})}
+       //  function(){iNow=iNow2},
+        // In()
+     ];
+     $("#ul3").queue("move1",list1);
+     var list1Move=function()
+     {
+         $("#ul3").dequeue("move1");
+     };
+     $(".c1").animate({"right":"-80"},list1Move)
+ }
+</script>
+</body>
+</html>

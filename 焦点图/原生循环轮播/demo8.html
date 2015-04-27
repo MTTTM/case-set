@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#box{ width:534px; height:300px; position:relative; margin:50px auto; overflow:hidden;}
+#box ul{ position:absolute; left:0; top:0;}
+#box ul li{ float:left; width:534px; height:300px;}
+#box ul li img{ height:300px;}
+
+#box a{ transition:.2s all ease;}
+#box .prev,#box .next{position:absolute;  top:50%; z-index:2; height:80px; line-height:80px; background:rgba(0,0,0,0.6); color:#fff; width:80px; text-align:center; margin-top:-40px; display:none;}
+#box .prev{ left:0;}
+#box .next{ right:0;}
+#box a:hover{ background:rgba(255,0,0,0.4);}
+
+#box ol{ position:absolute; width:120px; left:50%; margin-left:-60px; bottom:10px;}
+#box ol li{ width:20px; height:20px; background:#f60; float:left; margin:2px; text-align:center; text-indent:-9999px; border-radius:50%;}
+#box ol li.active{ background:#fff;}
+</style>
+<script>
+window.onload=function(){
+	var oBox=document.getElementById('box');
+	var oNext=oBox.children[1];
+	var oPrev=oBox.children[0];
+	var oUl=oBox.getElementsByTagName('ul')[0];
+	var aLi=oUl.children;
+	var oOl=oBox.getElementsByTagName('ol')[0];
+	var aBtn=oOl.children;
+	
+	//复制一份
+	oUl.innerHTML+=oUl.innerHTML;
+	//算宽度
+	oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+	var iNow=0;
+	
+	var W=oUl.offsetWidth/2;
+	
+	//准备
+	oBox.onmouseover=function(){
+		oNext.style.display='block';
+		oPrev.style.display='block';
+	};
+	oBox.onmouseout=function(){
+		oNext.style.display='none';
+		oPrev.style.display='none';
+	};
+	
+	//选项卡
+	for(var i=0; i<aBtn.length; i++){
+		(function(index){
+			aBtn[i].onclick=function(){
+				//当iNow的值等于最后一张图片的下标且当前的index为0，iNow的值加1
+				if((iNow%aBtn.length==aBtn.length-1 || iNow%aBtn.length==-1) && index==0){
+					iNow++;	
+				}
+			   //当iNow的值等于最第一张图片的下标且当前的index为最后一张，iNow的值加1
+				if(iNow%aBtn.length==0 && index==aBtn.length-1){
+					iNow--;	
+				}
+				//iNow=iNow-iNow%5+index;
+				iNow=Math.floor(iNow/aBtn.length)*aBtn.length+index;
+				tab();
+				document.title=iNow;
+			};
+		})(i);
+	}
+	function tab(){
+		/*定义下面小圆点的切换*/
+		for(var i=0; i<aBtn.length; i++){
+			aBtn[i].className='';
+		}
+		console.log(iNow);
+		if(iNow>0){
+			aBtn[iNow%aBtn.length].className='active';//信号量为正，此时显示的图片数组为当前取余所得的下标
+		}else{
+			aBtn[(iNow%aBtn.length+aBtn.length)%aBtn.length].className='active';//信号量为负，假设为-1，则此时显示的是最后一张，其下标为4	
+		}
+		//oUl.style.left=-iNow*aLi[0].offsetWidth+'px';	
+		startMove(oUl,-iNow*aLi[0].offsetWidth);//动画的元素，及动画的位移量
+	}
+	
+	//点击事件
+	oNext.onclick=function(){
+		iNow++;
+		tab();
+		document.title=iNow;
+	};
+	oPrev.onclick=function(){
+		iNow--;
+		tab();
+		document.title=iNow;
+	};
+	
+	var left=0;
+	function startMove(obj,iTarget){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var iSpeed=(iTarget-left)/8;
+			iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+			console.log(left);
+			
+			if(left==iTarget){
+				clearInterval(obj.timer);
+			}else{
+				left+=iSpeed;
+				if(left<0){
+					obj.style.left=left%W+'px';//此时ul的整体向左移动，取余所得的当前值即是ul的left值
+				}else{
+					obj.style.left=(left%W-W)%W+'px';//此时整个ul整体向右移动，(left%W-W)%W，加设left的值为1，则ul的位置是在-w的前一个像素位置即(1-w)
+				}	
+			}
+		},30);
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+	<a href="javascript:;" class="prev">prev</a>
+    <a href="javascript:;" class="next">next</a>
+	<ul>
+    	<li><img src="img/0.jpg"></li>
+    	<li><img src="img/1.jpg"></li>
+    	<li><img src="img/2.jpg"></li>
+    	<li><img src="img/3.jpg"></li>
+    	<li><img src="img/4.jpg"></li>
+    </ul>
+    <ol>
+    	<li class="active">0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+.page-4-bg{
+	position:absolute;
+	width:964px;
+	height:877px;
+	background: url(../img/lvbu.png) 0 0  no-repeat;
+	left:500px;
+	top:-80px;
+}
+.page-4 .right-top-btn{
+	position: absolute;
+	width:186px;
+	height:26px;
+	right:0;
+	top: 34px;
+}
+.page-4 .right-top-btn .game-home{
+	display: block;
+	float:left;
+	margin-right:10px;
+	width:93px;
+	height:26px;
+	background: url(../img/dianjiang-btn.png) 0 0 no-repeat;
+}
+.page-4 .right-top-btn .game-home:hover{
+	background-position: 0 -26px;
+}
+.page-4 .right-top-btn .order{
+	display: block;
+	float: left;
+	width:83px;
+	height:26px;
+	background: url(../img/dianjiang-btn.png) -93px 0 no-repeat;
+}
+.page-4 .right-top-btn .order:hover{
+	background-position: -93px -26px;
+}
+.page-4 .left-content{
+	float:left;
+	width:600px;
+	height:420px;
+	position: relative;
+}
+.page-4 .yuyueIphone{
+	float:left;
+	width:546px;
+	height:145px;
+	background: url(../img/yuyueIphone-bg.png) no-repeat;
+	margin-top: 125px;
+	position: relative;
+}
+.page-4 .yuyue-share{
+	float: left;
+	margin-top: 73px;
+	margin-left: 30px;
+}
+/*.page-4 .appdown{
+	float:left;
+	margin-top: 21px;
+	width: 330px;
+}
+.page-4 .appdown .title{
+	float:left;
+	display: block;
+	margin: 0 0 11px 2px;
+	width:86px;
+	height:18px;
+	background: url(../img/gamedown-icon.png) no-repeat;
+}
+.page-4 .appdown .erweima{
+	clear:left;
+	float:left;
+	background: url(../img/appdown-sprite.png) -372px 0 no-repeat;
+	width:93px;
+	height:93px;
+}
+.page-4 .appdown .erweima img{
+	margin:7px 0 0 7px;
+}
+.page-4 .appdown .btn{
+	display: block;
+	float:left;
+	width:186px;
+	height:43px;
+	background: url(../img/appdown-sprite.png) 0 0 no-repeat;
+	margin-left: 8px;
+}
+.page-4 .appdown .ios{
+	margin-bottom: 7px;
+}
+.page-4 .appdown .ios:hover{
+	background-position: -186px 0;
+}
+.page-4 .appdown .android{
+	background-position: 0 -50px;
+}
+.page-4 .appdown .android:hover{
+	background-position: -186px -50px;
+}*/
+.page-4 .yuyue{
+	
+}
+.page-4 .yuyue-btn{
+	margin-top: 25px;
+	float: left;
+	display: block;
+	width: 303px;
+	height: 83px;
+	background: url(../img/yuyue_btn.png) no-repeat;
+}
+.page-4 .yuyue-btn:hover{
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
+.page-4 .intro{
+	width:650px;
+	float:left;
+	margin-top:0px;
+	position: relative;
+}
+.page-4 .intro .huodong-title{
+	width: 400px;
+	height: 31px;
+	margin-bottom: 10px;
+	background: url(../img/huodong_title.png) no-repeat;
+	float: left;
+}
+.page-4 .intro .huodong-page{
+	float:right;
+	height: 34px;
+	width: 88px;
+	margin-right: 10px;
+	display: inline;
+}
+.page-4 .intro .huodong-page a{
+	display: block;
+	float: left;
+	width: 39px;
+	height: 34px;
+	background: url(../img/card-info-page.png) 0 0 no-repeat;
+}
+.page-4 .intro .huodong-page a.next-btn{
+	background-position: -39px 0;
+	margin-left:10px;
+}
+.page-4 .intro .huodong-page a:hover{
+	background-position-y:-34px;
+}
+.page-4 .intro .huodong-intro{
+	float:left;
+	width: 650px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.page-4 .intro .huodong-intro-div{
+	width: 1838px;
+	left: 0;
+	position: relative;
+}
+
+.page-4 .intro .huodong-intro .intro-libao{
+	display: block;
+	position: relative;
+	float:left;
+	width: 110px;
+	height: 148px;
+	margin-right: 10px;
+	text-align: left;
+	font-size: 15px;
+	color: #fff;
+	font-weight: 700;
+	padding: 52px 5px 0;
+	
+}
+.page-4 .intro .intro-libao .intro-neiceng{
+	display: block;
+	width: 110px;
+	height: 190px;
+	position: absolute;
+	top: -200px;
+	left: 0;
+	background: #076871;
+	padding: 5px;
+	line-height: 18px;
+}
+.page-4 .intro-neiceng h2{
+	font-size: 15px;
+	color: #fff;
+	font-weight: 700;
+}
+.page-4 .intro-neiceng p{
+	font-size: 12px;
+	color: #64a4aa;
+	word-break: break-all;
+}
+.page-4 .intro-neiceng p.white{
+	font-size: 12px;
+	color: #fff;
+}
+.libao1{
+	background: url(../img/p3_intro_bg1.jpg) no-repeat;
+}
+.libao2{
+	background: url(../img/p3_intro_bg2.jpg) no-repeat;
+}
+.libao3{
+	background: url(../img/p3_intro_bg3.jpg) no-repeat;
+}
+.libao4{
+	background: url(../img/p3_intro_bg4.jpg) no-repeat;
+}
+.libao5{
+	background: url(../img/p3_intro_bg5.jpg) no-repeat;
+}
+.libao6{
+	background: url(../img/p3_intro_bg6.jpg) no-repeat;
+}
+.libao7{
+	background: url(../img/p3_intro_bg7.jpg) no-repeat;
+}
+.libao8{
+	background: url(../img/p3_intro_bg8.jpg) no-repeat;
+}
+.libao9{
+	background: url(../img/p3_intro_bg9.jpg) no-repeat;
+}
+.libao10{
+	background: url(../img/p3_intro_bg10.jpg) no-repeat;
+}
+.libao11{
+	background: url(../img/p3_intro_bg11.jpg) no-repeat;
+}
+.libao12{
+	background: url(../img/p3_intro_bg12.jpg) no-repeat;
+}
+.libao13{
+	background: url(../img/p3_intro_bg13.jpg) no-repeat;
+}
+.libao14{
+	background: url(../img/p3_intro_bg14.jpg) no-repeat;
+}
+
+.page-4 .intro .tips-intro{
+	float: left;
+	color: #798d8b;
+	font-size: 12px;
+}
+.page-4 .tips-intro .tips-btn{
+	display: block;
+	width: 160px;
+	height: 37px;
+	background: url(../img/tips_btn.png) no-repeat;
+	margin-bottom: 10px;
+}
+.page-4 .tips-intro .tips-btn:hover{
+	opacity: 0.75;
+	filter:alpha(opacity=75);
+}
+.page-4 .intro .intro-libao-move {
+	position: absolute;
+	width: 45px;
+	height: 89px;
+	left: 660px;
+	top: 100px;
+	background: url(../img/libao_move.png);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html,body,ul,li{margin:0;padding:0;}
+        .box{height:100px;padding-top:5px;background:#A8A8A8;margin-top:200px;}
+        ul{list-style: none;width:948px;margin:0 auto;}
+        li{width:75px;height:23px;position:relative;padding-top:55px;margin:0 2px;text-align:center;font-family:"微乳雅黑";float:left;color:yellowgreen;background:#fff url(images/nav_03.png);}
+        li.l1{background-position:8px 0;}
+        li.l2{background-position:-69px 0;}
+        li.l3{background-position:-150px 0;}
+        li.l4{background-position:-227px 0;}
+        li.l5{background-position:-307px 0;}
+        li.l6{background-position:-390px 0;}
+        li.l7{background-position:-471px 0;}
+        li.l8{background-position:-550px 0;}
+        li.l9{background-position:-629px 0;}
+        li.l10{background-position:-705px 0;}
+        li.l11{background-position:-778px 0;}
+        li.l12{background-position:-1101px 0;}
+        em{display: block;position:absolute;left:12px;top:13px;width:50px;height:50px;background:blue;opacity:0;filter:alpha(opacity:0);}
+        p{clear:left;font-weight:bold;color:cyan;text-align: center;}
+        p a{text-decoration: none;color:#fff;}
+    </style>
+<script type="text/javascript" src="jquery1.42.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("li").mouseenter(function()
+            {
+                var index=$(this).index();
+                $("em").eq(index).stop(false,true).animate({width:"75px",height:"78px","opacity":0.3,"filter":"alpha(opacity:30)",left:0,top:0},500);
+            });
+            $("li").mouseleave(function()
+            {
+                var index=$(this).index();
+                $("em").eq(index).stop(false,true).animate({width:"50px",height:"50px","opacity":0,"filter":"alpha(opacity:0)",left:"12px",top:"13px"},500);
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <ul>
+        <li class="l1"><em></em>美莱</li>
+        <li class="l2"><em></em>美莱</li>
+        <li class="l3"><em></em>美莱</li>
+        <li class="l4"><em></em>美莱</li>
+        <li class="l5"><em></em>美莱</li>
+        <li class="l6"><em></em>美莱</li>
+        <li class="l7"><em></em>美莱</li>
+        <li class="l8"><em></em>美莱</li>
+        <li class="l9"><em></em>美莱</li>
+        <li class="l10"><em></em>美莱</li>
+        <li class="l11"><em></em>美莱</li>
+        <li class="l12"><em></em>美莱</li>
+    </ul>
+    <p>效果：<a href="//www.cqyixue.com/column/200">http://www.cqyixue.com/column/200</a></p>
+</div>
+
+</body>
+</html>

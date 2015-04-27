@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;font-size: 30px;vertical-align: middle;font-weight: bold;color:#fff;background:darkslategrey;}
+        img{width:50px;}
+        div{margin:300px auto;width:409px; height:69px;}
+
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oImg=document.getElementsByTagName("img");
+
+            var i=0;
+            setInterval(ds,1000);//每隔一秒自动更新
+            ds();//页面一加载进来的时候救护执行
+            function ds()
+            {
+                for(i=0;i<oImg.length;i++)
+                {
+                    var oDate=new Date();
+                    var str=""+ toDouble(oDate.getHours())+ toDouble(oDate.getMinutes())+ toDouble(oDate.getSeconds());
+                    oImg[i].src="images/"+str.charAt(i)+".png";
+                }
+            }
+
+
+            function toDouble(time)
+            {
+                if(time<10)
+                {
+                    return "0"+time;
+                }
+                else
+                {
+                    return time;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+<img src="images/0.png"/>
+<img src="images/0.png"/>:
+<img src="images/0.png"/>
+<img src="images/0.png"/>:
+<img src="images/0.png"/>
+ <img src="images/0.png"/>
+</div>
+</body>
+</html>

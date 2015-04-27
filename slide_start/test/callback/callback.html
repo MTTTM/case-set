@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../jquery-1.10.1.min.js"></script>
+    <style type="text/css">
+     *{maqrgin:0;padding:0;}
+      .div1,.div2{border:1px solid blueviolet;width:100px;height:100px;position: absolute;text-align: center;line-height: 100px;}
+        .div1{left:0;background:burlywood;}
+        .div2{left:900px;background:red;display: none;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="div1"></div>
+    <div class="div2">我来了</div>
+</div>
+<script>
+    $.fn.xmPlus=function(options)
+    {
+        $.fn.xmPlus.defaults={
+            endFun:null,
+            starFun:null,
+            div1:".div1",
+            effect:"left"
+        };
+        return $(this).each(function()
+        {
+            var opts= $.extend({}, $.fn.xmPlus.defaults,options);
+            var div1=$(this).find(opts.div1);
+            var effect=opts.effect;
+            var endFun=function()
+            {
+                if($.isFunction( opts.endFun ))
+                {
+                    opts.endFun()
+                }
+            };
+            var starFun=function()
+            {
+                if($.isFunction( opts. starFun ))
+                {
+                    opts. starFun()
+                }
+            };
+            doPlay();
+            function doPlay()
+            {
+              switch (effect)
+              {
+                  case "left":
+                          setTimeout(function(){
+                              div1.animate({"left":600},1000,endFun);
+                              starFun();
+                          },3000);
+              }
+            }
+        })
+    };
+    $(".box").xmPlus({div1:".div1",endFun:function(){$(".div2").fadeIn();$(".div1").fadeOut()},starFun:function(){$(".div1").html("我走了");}});
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        .tab1{width:400px;height:300px;position:relative;margin:30px auto;border:1px solid #ccc;overflow: hidden;}
+        .hd{height:30px;}
+        .hd li{width:40px;height:30px;float:left;background:beige;margin-right:3px;text-align: center;line-height: 30px;cursor: pointer;}
+        .hd li.active{color:#fff;background:#ccc;}
+        .bd{height:270px;width:1188px;margin:15px auto;position: relative;overflow: hidden;}
+        .bd ul{position: absolute;left:0;}
+        .bd li{height:266px;width:396px;float:left;margin:2px;font-size: 30px;color:#fff;line-height: 270px;text-align: center;}
+        .bd li:nth-of-type(1){background:blue;}
+        .bd li:nth-of-type(2){background:brown;}
+        .bd li:nth-of-type(3){background:blueviolet;}
+        .bd li:nth-of-type(4){background:darkcyan;}
+        .bd li:nth-of-type(5){background:blue;;}
+        .bd li:nth-of-type(6){background:brown;}
+        .bd li:nth-of-type(7){background:blueviolet;}
+        .bd li:nth-of-type(8){background:darkcyan;}
+
+        .prev{position:absolute;z-index:100000;display: block;left:2px;top:145px;border-top:20px solid transparent;border-bottom:20px solid transparent;border-right:40px solid cadetblue;}
+        .next{position:absolute;z-index:100000;display: block;right:2px;top:145px;border-top:20px solid transparent;border-bottom:20px solid transparent;border-left:40px solid cadetblue;}
+        .prev:hover{opacity:.6;}
+        .next:hover{opacity:.6;}
+    </style>
+</head>
+<body>
+<div class="tab1" id="leftLoop">
+    <a href="javascript:;" class="prev"></a>
+    <a href="javascript:;" class="next"></a>
+      <div class="hd">
+          <ul>
+          </ul>
+      </div>
+    <div class="bd">
+        <ul>
+            <li>fade1</li>
+            <li>fade2</li>
+            <li>fade3</li>
+            <li>fade4</li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var box=$(".tab1");
+    var th=$(".hd ul");
+    var bd=$(".bd ul");
+    var bdLi=$(".bd li");
+    var bdLiW=bdLi.outerWidth(true);
+    var prev=$(".prev");
+    var next=$(".next");
+    var bdLiLen=bdLi.length;
+    var iNow=1;
+    var timer;
+
+    /*布局*/
+    for(var i=0;i<bdLiLen;i++)//产生btn
+    {
+        $("<li>"+(i+1)+"</li>").appendTo(th);
+    }
+	 var thLi=$(".hd li");
+	for(var i=0;i<bdLiLen;i++)
+	{
+	    thLi.eq(i).click(function(){
+		   iNow=thLi.index(this)+1;
+		   doScroll();
+		});
+	}
+	timer=setInterval(function(){
+	  iNow++;
+	  doScroll()
+	},2000);
+	bd.add(th).add(prev).add(next).mouseover(function(){
+	 clearInterval(timer);
+	})
+	bd.add(th).add(prev).add(next).mouseout(function(){
+	  timer=setInterval(function(){
+	  iNow++;
+	  doScroll()
+	},2000);
+	})
+    bdLi.eq(0).clone(true).appendTo(bd);
+    bdLi.eq(bdLiLen-1).clone(true).prependTo(bd);
+    bdLi=$(".bd li");//重新获取拷贝后的节点
+    bdLiLen=bdLi.length;//重新计算拷贝后的节点的长度
+    bd.width(bdLiLen*bdLi.outerWidth(true));
+	 bd.css({"left":-bdLiW});
+    thLi.eq(iNow-1).addClass("active").siblings().removeClass("active");
+
+    /*操作*/
+   prev.click(function(){
+       if(!bd.is(":animated"))
+       {
+               iNow++;
+           console.log(iNow);
+           doScroll();
+       }
+   });
+    next.click(function(){
+       if(!bd.is(":animated"))
+       {
+           iNow--;
+           doScroll();
+       }
+
+    });
+
+    function doScroll()
+    {
+        thLi.eq(iNow-1).addClass("active").siblings().removeClass("active");
+         bd.animate({"left":-iNow*bdLiW},600,function()
+		 {
+		    if(iNow==0)
+           {
+               bd.css({"left":-(bdLiLen-2)*bdLiW});
+               iNow=bdLiLen-2;
+           }
+		   else if(iNow==bdLiLen-2)
+           {
+               bd.css({"left":0});
+               iNow=0;
+           }
+		 });
+
+    }
+
+
+</script>
+</body>
+</html>

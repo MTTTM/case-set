@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+    <style type="text/css">
+       #box{width:250px;height:150px;border:1px solid #000;position: absolute;padding-top:100px;}
+       #hd{width:250px;height:50px;background:yellowgreen;position:absolute;top:0;text-align: center;color:#fff;line-height: 50px;font-size: 16px;}
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            var  disX=0;
+            var disY=0;
+            $("#hd").mousedown(function(ev){
+              disX=ev.pageX-$(this).offset().left;
+              disY=ev.pageY-$(this).offset().top;
+                $(document).mousemove(function(ev){
+                  $("#box").css("left",ev.pageX-disX);
+                    $("#box").css("top",ev.pageY-disY);
+                });
+                $(document).mouseup(function(){
+                    $(document).off();
+                });
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="hd">提示：我是可以拖拽的</div>
+    <div>用户：<input type="text"/></div>
+    <div>密码：<input type="text"/></div>
+    <div><button>提交</button></div>
+</div>
+</body>
+</html>

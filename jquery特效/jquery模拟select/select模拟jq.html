@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <style type="text/css">
+        *{margin:0;padding:0;list-style: none;}
+        .box{width:140px;height:25px;left:300px;position: relative;border:1px solid slategray;box-sizing: border-box;}
+        .box span{display: block;position: absolute;left:0;width:140px;height:25px;line-height: 25px;z-index:999;background:none;}
+        .box em{display: block;width:0;height:0;position:absolute;right:5px;top:5px;border-top:10px solid slategray;border-left:5px solid transparent;border-right:5px solid transparent;}
+       #item{height:208px;width:140px;overflow:hidden;position:absolute;top:25px;left:-1px;;border:1px solid lightslategray;}
+        #item_box{width:120px;height:208px;}
+        ul{position: relative;}
+         li{width:120px;height: 25px;line-height: 25px;border-bottom:1px solid #fff;background:darkgrey;}
+        #scrollBar{width:20px;height:208px;position:absolute;right:0;top:0;background:bisque;}
+        #bar{width:20px;height:20px;position: absolute;top:0;background:lightslategrey;}
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <span id="span">请选择型号</span>
+    <em></em>
+    <div id="item">
+        <div id="item_box">
+            <ul id="scroll_ctn">
+                <li>1选择型号</li>
+                <li>2选择型号</li>
+                <li>3选择型号</li>
+                <li>4选择型号</li>
+                <li>5选择型号</li>
+                <li>6选择型号</li>
+                <li>7选择型号</li>
+                <li>8选择型号</li>
+                <li>9选择型号</li>
+                <li>10选择型号</li>
+                <li>11选择型号</li>
+                <li>12选择型号</li>
+                <li>13选择型号</li>
+            </ul>
+        </div>
+        <div id="scrollBar">
+            <div id="bar"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+        <script type="text/javascript">
+            var box=$("#box");
+            var item=$("#item");
+            var item_box=$("#item_box");
+            var li=$("li");
+            var span=$("#span");
+            var scrollBar=$("#scrollBar");
+            var Bar=$("#bar");
+            var scrollCtn=$("#scroll_ctn");
+
+          span.click(function(ev)
+            {
+                stopPro(ev);
+                item.css({"display":"block"})
+            });
+            scrollBar.click(function(ev)
+            {
+                stopPro(ev);
+                item.css({"display":"block"})
+            });
+
+            $(document).click(function(ev)
+            {
+                item.css("display","none")
+            });
+
+             li.click(function()
+                {
+                    span.text($(this).html());
+                });
+
+            function stopPro(e)//阻止冒泡
+            {
+                if ( e.stopPropagation ){
+                    e.stopPropagation();
+                }else
+                {
+                    window.event.cancelBubble = true;
+                }
+            }
+            //模拟select end
+            //自定义滚动条 end
+
+                var  disX=0;
+                var disY=0;
+
+            var scrollBarHeight=scrollBar.height();
+            var BarHeight=Bar.height();
+            var scrollCtnHeight=scrollCtn.height();
+            var itemHeight=item.height();
+            var barMx=scrollBarHeight-BarHeight;//滚动条最大的滚动距离
+            var CntMx=scrollCtnHeight-itemHeight;//滚动内容的最大距离
+            item.css({"display":"none"});
+                Bar.on("mousedown.down",function(ev)
+                {
+
+                    disY=ev.clientY-Bar.position().top;
+                    $(document).on("mousemove.move",function(ev){
+                        var T=ev.pageY-disY;
+                        if(T<0)//最小顶部距离
+                        {
+                            T=0;
+                        }
+                        if(T>barMx)//最大顶部距离
+                        {
+                            T=barMx;
+                        }
+                        Bar.css("top",T);//设置样式
+                        var percent=T/barMx;//获取比例
+                        scrollCtn.css({"top":-percent*CntMx});
+                    });
+                    $(document).on("mouseup up",function()
+                    {
+                        $(document).off(".move .up");//有些版本删除了这个功能
+                    });
+                    return false;
+                })
+        </script>

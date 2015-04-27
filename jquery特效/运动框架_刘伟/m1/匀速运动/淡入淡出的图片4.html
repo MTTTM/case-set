@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{width:100px;height:300px;background:red;position: absolute;top:100px;left:-100px;}
+        #div2{width:30px;height:60px;background:black;position:absolute;right:-30px;top:70px;color:#fff;text-align: center;}
+        #img1{opacity:0.3;filter:alpha(opacity=30);margin-left:500px;}
+    </style>
+    <script type="text/javascript">
+        var iTimer=null;
+        window.onload=function(){
+            var oDiv1=document.getElementById("div1");
+            var oDiv2=document.getElementById("div2");
+            var oImg=document.getElementById("img1");
+            oImg.onmouseover=function()
+            {
+                startMove2(oImg,100,10);
+            };
+            oImg.onmouseout=function()
+            {
+                startMove2(oImg,30,-10);
+            };
+            oDiv1.onmouseover=function()
+            {
+                startMove(oDiv1,0,10);
+            };
+            oDiv1.onmouseout=function()
+            {
+                startMove(oDiv1,-100,-10);
+            };
+            function startMove(obj,itarget,iSpeed)
+            {
+                clearInterval(iTimer);
+                iTimer=setInterval(function(){
+                    if(obj.offsetLeft==itarget)
+                    {
+                        clearInterval(iTimer);
+                    }
+                    else
+                    {
+                        obj.style.left=oDiv1.offsetLeft+iSpeed+"px";
+                    }
+                },30)
+            }
+
+
+            function startMove2(obj,itarget,iSpeed)
+            {
+                clearInterval(iTimer);
+                var iCur=0;
+                iTimer=setInterval(function(){
+                    iCur=Math.round(css(obj,"opacity")*100);
+                    if(iCur==itarget)
+                    {
+                        clearInterval(iTimer);
+                    }
+                    else
+                    {
+                      obj.style.opacity=(iCur+iSpeed)/100;
+                     obj.style.filter="alpha(opacity="+(iCur+iSpeed)+")"
+                    }
+                },30)
+            }
+            function css(obj, attr) {
+                if (obj.currentStyle) {
+                    return obj.currentStyle[attr];
+                } else {
+                    return getComputedStyle(obj, false)[attr];
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">分享到</div>
+</div>
+<img src="img/1.jpg" id="img1"/>
+</body>
+</html>

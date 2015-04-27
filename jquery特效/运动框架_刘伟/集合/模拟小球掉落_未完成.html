@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box{width:100px;height:100px;background:red;position: absolute;left:0;top:30px;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oDiv=document.getElementById("box");
+            var  btn=document.getElementById("btn");
+
+            var timer=null;
+            var speed=0;
+
+            btn.onclick=function()
+            {
+                startMove();
+            };
+
+            function startMove()
+            {
+                clearInterval(timer);
+                timer=setInterval(function()
+                {
+
+                    speed+=3;
+                    var T=oDiv.offsetTop+speed;
+                    var H=oDiv.offsetHeight+speed;
+                    if(T>document.documentElement.clientHeight-oDiv.offsetHeight)
+                    {
+                        T=document.documentElement.clientHeight-oDiv.offsetHeight;
+                        speed*=-1;
+                        speed*=0.75;
+                        startMove2(oDiv,{height:H});
+                    }
+                    oDiv.style.top=T+"px";
+                },30)
+            }
+            function startMove2(obj,json,fn) {
+                clearInterval(obj.timer);
+                var iSpeed = 0;
+
+                obj.timer = setInterval(function () {
+
+                    for (var attr in json) {
+                        var iTarget = json[attr];
+                        var iCur = parseInt(getStyle(obj, attr));
+                        iSpeed += (iTarget - iCur) / 10;
+                        iSpeed *= 0.75;
+                        if (Math.abs(iSpeed) <= 1 && Math.abs(iTarget - iCur) <= 1) {
+                            clearInterval(obj.timer);//清除定时器
+                            obj.style[attr] = iTarget + "px";//修正误差
+                            iSpeed = 0;
+                            fn && fn.call(obj);
+                        }
+                        obj.style[attr] = iCur + iSpeed + "px";
+                    }
+                }, 30)
+                function getStyle(obj, attr) {
+                    if (obj.currentStyle) {
+                        return  obj.currentStyle[attr];
+                    }
+                    else {
+                        return   getComputedStyle(obj, false)[attr];
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{background:darkslategrey;}
+        .box{width:1380px;height:344px;margin:200px auto 0;position: relative;}
+        img{position: absolute;}
+        #prev{position: absolute;left:320px;top:122px;width:76px;height:112px;background:url(images/prev.png) no-repeat;z-index:9999;cursor:pointer;}
+        #next{position: absolute;left:1063px;top:122px;width:76px;height:112px;background:url(images/next.png) no-repeat;z-index:9999;cursor:pointer;}
+    </style>
+    <script type="text/javascript" src="miaov.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var prevD=document.getElementById("prev");
+            var nexT=document.getElementById("next");
+            var box=document.getElementById("box");
+            var Img=box.getElementsByTagName("img");
+            var arr=[];
+            for(var i=0;i<Img.length;i++)
+            {
+                arr.push([parseInt(getStyle(Img[i],"height")),parseInt(getStyle(Img[i],"left")),parseInt(getStyle(Img[i],"top")),parseInt(getStyle(Img[i],"border")),parseInt(getStyle(Img[i],"z-index"))]);
+
+            }
+console.log("xxxxx");
+            prevD.onclick=function()
+            {
+                arr.push(arr[0]);//把第一个给添加到后面去
+                arr.shift();//删除第一项
+
+                for(var i=0;i<Img.length;i++)
+                {
+                    Img[i].style.zIndex=arr[i][4];
+                    startMove(Img[i], {height: arr[i][0], left: arr[i][1], top: arr[i][2],borderWidth:arr[i][3]});
+                }
+            };
+            nexT.onclick=function()
+            {
+                //arr.unshift(arr[4]);//把最后一个丢到前面去
+
+                arr.splice(0,0,arr[4]);
+                //arr.pop();//删除第一项
+
+                for(var i=0;i<Img.length;i++)
+                {
+                    Img[i].style.zIndex=arr[i][4];
+                    startMove(Img[i], {height: arr[i][0], left: arr[i][1], top: arr[i][2],borderWidth:arr[i][3]});
+                }
+            };
+            function getStyle(obj,attr)
+            {
+                if(obj.currentStyle)
+                {
+                    return obj.currentStyle[attr];
+                }
+                else
+                {
+                    return getComputedStyle(obj,false)[attr];
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div id="prev"></div>
+    <div id="next"></div>
+    <img src="images/1.jpg" style="height:180px;left:20px;top:80px;z-index:1;border:0px solid yellowgreen;"/>
+    <img src="images/2.jpg" style="height:250px;left:200px;top:50px;z-index:3;border:0px solid yellowgreen;"/>
+    <img src="images/3.jpg" style="height:344px;left:383px;top:0;z-index:5;border:5px solid yellowgreen;"/>
+    <img src="images/4.jpg" style="height:250px;left:756px;top:50px;;z-index:3;border:0px solid yellowgreen;"/>
+    <img src="images/5.jpg" style="height:180px;left:1023px;top:80px;z-index:1;border:0px solid yellowgreen;"/>
+</div>
+</body>
+</html>

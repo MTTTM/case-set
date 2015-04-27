@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .high{color:#ff0000;}
+        .focus{
+            border:1px solid #f00;
+            background:#fcc;
+        }
+        .onSuccess{ color:green;}
+        .onError{color:red;}
+    </style>
+    <script type="text/javascript" src="jquery1.42.min.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            //为必须填写元素添加小红点
+         $("form :input.required").each(function(){
+             var $required=$('<strong class="high">*</strong>');//创建元素
+             $(this).parent().append($required);//将他追加到文档中
+         });
+            //为获取焦点和失去焦点添加样式
+            $(":input").focus(function(){
+                $(this).addClass("focus");
+            }).blur(function(){
+                $(this).removeClass("focus")
+            })
+            //验证
+            $("form :input").blur(function(){
+                var $parent=$(this).parent();
+                $parent.find(".formtips").remove();
+                //验证用户名
+                if($(this).is("#username"))
+                {
+                    if(this.value=""||this.value.length<6)
+                    {
+                        var errorMsg="请输入至少6位数的用户名";
+                        $parent.append('<span class="formtips onError">'+errorMsg+'</span>')
+                    }
+                    else{
+                        var okMsg="输入正确";
+                        $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>')
+                    }
+                }
+
+                //验证邮箱
+                if($(this).is("#email"))
+                {
+                    if(this.value=""||this.value.length<6)
+                    {
+                      var errorEmail="请输入正确的E-mail地址";
+                        $parent.append('<span class="formtips onError">'+errorEmail+'</span>')
+                    }
+                    else
+                    {
+                        var okEmail="输入正确";
+                        $parent.append('<span class="formtips onSuccess">'+okEmail+'</span>')
+                    }
+                }
+                  //提交
+                  $("#send").click(function()
+                  {
+                      $("form .required :input").trigger("blur");
+                      var numError=$("form .onErro").length;
+                      if(numError)
+                      {
+                          return false;
+                      }
+                      alert("注册成功，密码已经发到你的邮箱，注意查收")
+                  })
+            })
+        })
+    </script>
+</head>
+<body>
+<form>
+    <div class="int">
+        <label>
+            用户名：
+            <input type="text" id="username" class="required"/>
+        </label>
+    </div>
+    <div class="int">
+        <label>
+            邮箱：
+            <input type="text" id="email" class="required"/>
+        </label>
+    </div>
+    <div class="int">
+        <label>
+            个人资料：
+            <input type="text" id="personinfo" class="required"/>
+        </label>
+    </div>
+    <div class="int">
+       <input type="submit" id="send"/>
+        <input type="reset" id="res"/>
+    </div>
+</form>
+<p style="color:red;">有问题，求帮助</p>
+</body>
+</html>

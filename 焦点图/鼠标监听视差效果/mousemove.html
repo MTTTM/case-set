@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        html,body{width:100%;height:100%;overflow: hidden;}
+        .body_bg{width:100%;height:616px;background:url(img/bg_1440.jpg);position: absolute;}
+        .bg{width:100%;height:616px;position: absolute;}
+        .bg .wrap{width:80%;height:616px;margin:0 auto;position: relative;}
+        .bg .pat1{position: absolute;width:642px;height:506px;top:0px;left:262px;z-index:1;opacity: 0.5;}
+        .bg .pat2{position: absolute;width:634px;height:517px;top:0px;left:0px;z-index:2;opacity: 0.5;}
+        .bg .pat3{position: absolute;width:1440px;height:615px;top:0px;left:0px;z-index:3;opacity: 0.5;}
+        .bg .pat4{position: absolute;width:1440px;height:615px;top:0px;left:0px;z-index:10;opacity: 0.5;}
+        .bg .pat5{position: absolute;width:1440px;height:615px;top:0px;left:200px;z-index:2;opacity: 0.6;}
+        .bg .pat6{position: absolute;width:1440px;height:615px;top:0px;left:-150px;z-index:8;opacity: 0.6;}
+        .bg .pat7{position: absolute;width:1440px;height:615px;top:0px;left:0px;z-index:9;}
+        .bg .pat8{position: absolute;width:1440px;height:615px;top:0px;left:0px;z-index:6;}
+        .bg .pat9{position: absolute;width:1440px;height:615px;top:0px;left:0px;z-index:7;}
+    </style>
+    <script type="text/javascript" src="jquerypack.js"></script>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var wrap=document.getElementById("bg");
+            var span=document.getElementsByClassName("dd");
+            for(var i=0;i<span.length;i++)
+            {
+                span[i].startX=parseInt(getStyle(span[i],"left"));
+            }
+            wrap.onmousemove=function(ev)
+            {
+                var page=ev.clientX-this.offsetWidth/2;
+                // console.log(page-this.offsetLeft)
+                for(var i=0;i<span.length;i++)
+                {
+                    var iZindex=getStyle(span[i],"zIndex");
+                 //   console.log((page-this.offsetLeft)/100*iZindex);
+                  //  console.log(span[i].offsetLeft);
+                    span[i].style.left=span[i].startX+(page-this.offsetLeft)/20*(5-iZindex)+"px";//这里的5是选择了div长度中间的那个，这样就可以实现一半做左边走，一般右边走
+                }
+            }
+        };
+
+        function getStyle(obj,attr)
+        {
+            if( obj.currentStyle){
+                return obj.currentStyle[attr];
+            }
+            return getComputedStyle(obj)[attr];
+        }
+    </script>
+</head>
+<body>
+<div class="body_bg"></div>
+<div id="bg" class="bg">
+    <div class="wrap">
+        <div class="pat1 dd"><img src="img/s03_print1.png"></div>
+        <div class="pat2 dd"><img src="img/s02_print1.png"></div>
+        <div class="pat3 dd"><img src="img/print_red_1440.png"/></div>
+        <div class="pat4 dd"><img src="img/print_yellow_1440.png"/></div>
+        <div class="pat5 dd"><img src="img/print_blue_1440.png"/></div>
+        <div class="pat6 dd"><img src="img/ink_dots_far_1440.png"/></div>
+        <div class="pat7 dd"><img src="img/person_1440.png"/></div>
+        <div class="pat8 dd"><img src="img/print_purple_1440.png"/></div>
+        <div class="pat9 dd"><img src="img/skills_1440.png"/></div>
+    </div>
+</div>
+</body>
+</html>

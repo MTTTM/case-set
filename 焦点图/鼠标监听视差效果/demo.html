@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        #wrap{width:600px;height:600px;margin:20px auto;position: relative;border:1px solid #333;}
+        #div1{width:120px;height:220px;background:red;position: absolute;left:150px;top :20px;z-index:1;}
+        #div2{width:150px;height:150px;background:blueviolet;position: absolute;left:408px;top :60px;z-index:2;}
+        #div3{width:200px;height:300px;background: orange;position: absolute;left:200px;top :200px;z-index:3;}
+    </style>
+    <script type="text/javascript" src="jquerypack.js"></script>
+    <script type="text/javascript">
+     window.onload=function()
+     {
+         var wrap=document.getElementById("wrap");
+         var span=document.getElementsByTagName("span");
+         for(var i=0;i<span.length;i++)
+         {
+             span[i].startX=parseInt(getStyle(span[i],"left"));
+         }
+         wrap.onmousemove=function(ev)
+         {
+             var page=ev.clientX-this.offsetWidth/2;
+            // console.log(page-this.offsetLeft)
+             for(var i=0;i<span.length;i++)
+             {
+                 var iZindex=getStyle(span[i],"zIndex");
+                 console.log((page-this.offsetLeft)/100*iZindex);
+                 console.log(span[i].offsetLeft);
+                 span[i].style.left=span[i].startX+(page-this.offsetLeft)/10*(4-iZindex)+"px";
+             }
+         }
+     };
+
+     function getStyle(obj,attr)
+     {
+         if( obj.currentStyle){
+             return obj.currentStyle[attr];
+         }
+         return getComputedStyle(obj)[attr];
+     }
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <span id="div1">1最快</span>
+    <span id="div2">2中等</span>
+    <span id="div3">3最慢</span>
+</div>
+</body>
+</html>

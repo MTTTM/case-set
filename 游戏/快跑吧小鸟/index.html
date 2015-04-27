@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        html{width:100%;height:100%;}
+        body{width:100%;height:100%;overflow: hidden;background:url(images/dd.png) repeat-x;}
+        #box{position: absolute;background:url(images/dd.png) repeat-x;}
+        img{display: block;width:50px;top:0;position: absolute;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="images/bb.gif" id="xn">
+</div>
+<script type="text/javascript">
+    window.onload=function()
+    {
+        var win_height=document.documentElement.clientHeight;
+        var win_width=document.documentElement.clientWidth;
+        var bd=document.getElementById("box");
+        var xn=document.getElementById("xn");
+        bd.style.height=win_height+"px";
+        bd.style.width=win_width+"px";
+        var iNow=0;
+        var ddd=0;
+        var bodyL=0;
+        var xnTop=0;
+
+        document.onkeydown=function(event)
+        {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 38) {
+                clearInterval(xnTimer);
+                xnTop-=10;
+                xn.style.top=xnTop+"px";
+            }
+
+        };
+        document.onkeyup=function(event)
+        {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 38) {
+                xnTimer=setInterval( fnd,200);
+            }
+        };
+
+        createDiv();
+        var xnTimer=setInterval( fnd,200);
+       function fnd()  //控制小鸟的下落
+       {
+           //小鸟
+           xnTop+=100;
+           xn.style.top= xnTop+"px";
+           if(xnTop>=win_height)
+           {
+               clearInterval(xnTimer);
+               clearInterval(bgTimer);
+               alert("游戏结束")
+           }
+       }
+       function createDiv()//产生阻碍物
+       {
+           iNow++;
+           ddd+=60+30*Math.random();
+           bodyL-=10;
+           //小鸟的left
+           xn.style.left=(-bodyL+300)+"px";
+
+           var Ele=document.createElement("div");
+           Ele.style.width="50px";
+           Ele.style.height=Math.random()*300+"px";
+           Ele.style.left=ddd+"px";
+           if(ddd>win_width)
+           {
+               bd.style.width=ddd+50+"px";
+           }
+
+           Ele.style.position="absolute";
+           Ele.style.backgroundColor="rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+           if(iNow%2==0)
+           {
+               Ele.style.top=0;
+           }
+           else
+           {
+               Ele.style.bottom=0+"px"
+
+           }
+          bd.appendChild(Ele);
+          bd.style.left=bodyL+"px";
+
+       }
+       var bgTimer= setInterval( createDiv,100);
+
+
+    }
+</script>
+</body>
+</html>

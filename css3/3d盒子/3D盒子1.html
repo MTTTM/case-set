@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        #btns1{position: fixed;height:120px;top:calc(50% - 60px);}
+        #btns1 li{width:100px;height:24px;margin:3px 0;background:#f60;
+            text-align: right;padding-right:10px;font:14px/24px "微软雅黑";color:#fff;position:
+        relative;left:-80px;
+        -webkit-transition:.5s;
+        }
+        #btns1 .active{left:0;}
+        .wrap{width:800px;height: 400px;border:1px solid #000;margin:30px auto;-webkit-perspective:1200px;}
+        .wrap ul{width:100%;height:100%;position: relative;-webkit-transform-style:preserve-3d;transition:1s;-webkit-transform-origin:center center -400px;}
+        .wrap ul li{width:100%;height:100%;position: absolute;top:0;font:100px/400px bold;color:#fff;text-align: center;}
+        .wrap ul li:nth-of-type(1){background:green;left:0;top:0;}
+        .wrap ul li:nth-of-type(2){background:dodgerblue;left:100%;-webkit-transform-origin:left;-webkit-transform:rotateY(90deg);}
+        .wrap ul li:nth-of-type(3){background:dodgerblue;left:0;top:0;-webkit-transform:translateZ(-800px);}
+        .wrap ul li:nth-of-type(4){background:brown;left:-100%;top:0;-webkit-transform-origin:right;-webkit-transform:rotateY(-90deg);}
+        body:hover #list{-webkit-transform:rotateY(-360deg)}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<ul id="btns1">
+    <li class="active">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

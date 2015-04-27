@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        body{background:#1f1a17;}
+        div{position: absolute;top:-100px;}
+        img{width:100%;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+          var bd=document.getElementsByTagName("body")[0];
+
+            snow();
+            function snow()
+            {
+                var win_height=document.documentElement.clientHeight;
+                var win_width=document.documentElement.clientWidth;
+                function createsnow()
+                {
+                    var snowdiv=document.createElement("div");
+                    snowdiv.innerHTML="<img src='images/p"+Math.ceil(Math.random()*4)+".png'/>";
+                    var size=10+parseInt(Math.random()*30);
+                    var left=parseInt(win_width*(Math.random())*0.98);
+                    snowdiv.style.width=size+"px";
+                    snowdiv.style.left=left+"px";
+                    bd.appendChild(snowdiv);
+                    return snowdiv;
+                }
+                setInterval(function(){
+                    var snow=createsnow();
+                    var sbd=Math.ceil(Math.random()*30);
+                    move(snow,sbd)
+                },100);
+
+                function move(obj,speed)
+                {
+                    var top=0;
+                    var timer=setInterval(function(){
+                        top=top+speed;
+                        obj.style.top=top+"px";
+                        if(top>win_height-30)
+                        {
+                            clearInterval(timer);
+                        }
+                    },30)
+                }
+
+                setInterval(function(){
+                    var snows=document.getElementsByTagName("div");
+                    for(var i=0;i<snows.length/3;i++)
+                    {
+                        snows[i].parentNode.removeChild(snows[i]);
+                    }
+                },20000);
+
+
+            }
+            window.onresize=function()
+            {
+                var snows=document.getElementsByTagName("div");
+                for(var i=0;i<snows.length;i++)
+                {
+                    snows[i].parentNode.removeChild(snows[i]);
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

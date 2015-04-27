@@ -1,0 +1,28 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CSS与易拉罐3D滚动效果</title>
+    <style type="text/css">
+        @-webkit-keyframes scroll
+        {
+            0%{
+                margin-left:300px;
+            }
+          100%{
+              margin-left:800px;
+          }
+        }
+        .inner{width:194px; height:336px;margin-left:300px;margin-top:60px;-webkit-animation:scroll 5s ease-in-out infinite alternate;background:url(http://www.zhangxinxu.com/study/image/coke_bg.jpg) repeat-x fixed 0 69px;}
+    </style>
+</head>
+
+<body>
+
+    <div class="inner">
+        <img src="http://www.zhangxinxu.com/study/image/coke_can.png"/>
+     </div>
+
+</body>
+</html>

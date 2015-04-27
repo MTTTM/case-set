@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @-webkit-keyframes roate{
+            0%{
+                -webkit-transform:rotate(0deg);
+            }
+            100%{
+                -webkit-transform:rotate(-360deg);
+            }
+        }
+        @-webkit-keyframes roate2{
+            0%{
+                -webkit-transform:rotate(0deg);
+            }
+            100%{
+                -webkit-transform:rotate(360deg);
+            }
+        }
+        @-webkit-keyframes translate{
+            0%{
+                -webkit-transform:translateY(0px)
+            }
+            100%{
+                -webkit-transform:translateY(8px)
+            }
+        }
+        @-webkit-keyframes shadow{
+            0%{
+                -webkit-transform:scale(0.6);opacity:0.5;
+            }
+            100%{
+                -webkit-transform:scale(1);opacity:1;
+            }
+        }
+        #load{width:120px;height:140px;position: absolute;left:calc(50% - 60px);top:calc(50% - 70px);}
+        .pic{width:120px;height:100px;background:url(loding/loading3.png) no-repeat;-webkit-animation:1s translate infinite alternate linear;}
+        .pic div{width:120px;height:100px;position: absolute;left:0;top:0;}
+        #pic2{background:url(loding/loading4.png) no-repeat;-webkit-animation:1s roate infinite linear;}
+        #pic3{background:url(loding/loading5.png) no-repeat;-webkit-animation:1s roate2 infinite linear;}
+        #text{font:18px/100px Arial;text-align:  center;color:#F39;}
+        #shadow{width:100px;height:40px;margin:0 auto;background:-webkit-radial-gradient(contain,rgba(0,0,0,0.5),rgba(0,0,0,0));-webkit-animation:1s shadow infinite alternate linear;}
+    </style>
+</head>
+<body>
+ <div id="load">
+     <div class="pic">
+         <div id="pic2"></div>
+         <div id="pic3"></div>
+         <div id="text">0%</div>
+     </div>
+     <div id="shadow"></div>
+ </div>
+</body>
+</html>

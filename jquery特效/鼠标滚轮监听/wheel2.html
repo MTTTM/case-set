@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="wheel.js"></script>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        body{overflow: hidden;width:100%;height:100%;min-width:700px;}
+        ul{list-style:none;position: absolute;top:0;width:100%;height:500%;}
+        li{display: block;color:#fff;position: relative;width:100%;height:20%;overflow: hidden;}
+        li .bg{width:100%;height:100%;}
+        /*1l*/
+        .l1 .w1{position: absolute;left:21%;top:18%;width:30%;height:auto;}
+        .l1 .bg img{display: block;width:100%;height:100%;min-width: 780px;min-height: 420px;z-index:1;}
+        .l1 .right{position: absolute;right:2%;bottom:10%;width:40%;height:78%;min-width:160px;min-height:325px;}
+        /*2l*/
+        .l2 .left{height:auto;width:30%;position: absolute;left:0;top:0;}
+        .l2 .right_img{position:absolute;top:30%;right:20%;}
+        .l2 .right_san{position:absolute;top:30%;right:10%;}
+        /*3l*/
+        .l3 .right{height:100%;width:auto;min-height:350px;position: absolute;right:0;top:0;}
+        .l3 .left{height:100%;width:auto;min-height:350px;position: absolute;left:0;top:0;}
+        /*4L*/
+        .l4 .bg .right{height:100%;width:auto;min-height:350px;position: absolute;right:0;top:0;}
+        .l4 .bg .left{height:100%;width:auto;min-height:350px;;position: absolute;left:0;top:0;}
+        /*5L*/
+        .l5 .bg .right{height:100%;width:auto;min-height:350px;;position: absolute;right:5%;top:10%;}
+        .l5 .bg .left{height:100%;width:auto;min-height:350px;position: absolute;left:0;top:0;}
+        /*menu*/
+        .menu{height:205px;width:40px;position: absolute;top:50%;margin-top:-102px;right:0;background:#333;z-index:2;}
+        .menu span{display: block;width:40px;height:40px;font-family:"微乳雅黑";color:#fff;line-height: 40px;text-align: center;}
+        .menu span.on{background:yellowgreen;}
+    </style>
+</head>
+<body>
+<div class="menu">
+    <span>首页</span>
+    <span>01</span>
+    <span>02</span>
+    <span>03</span>
+    <span>04</span>
+</div>
+<ul>
+    <li class="l1">
+        <div class="bg">
+            <img src="http://img3.cache.netease.com/photo/0026/2014-12-23/AE5L82ES513O0026.jpg"/>
+        </div>
+        <img src="http://img1.cache.netease.com/f2e/lady/special_women_cover/images/a_2.png" class="w1"/>
+        <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/a_2.png" class="right"/>
+
+    </li>
+    <li class="l2">
+         <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/b_1.png" class="left"/>
+         <img src="http://img6.cache.netease.com/lady/2014/12/23/2014122315374730393.jpg" class="right_img">
+        <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/b_2.png" class="right_san"/>
+    </li>
+    <li class="l3">
+         <img src="http://img3.cache.netease.com/photo/0026/2014-12-23/AE5LF8U5513O0026.jpg" class="right"/>
+        <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/c_1.jpg" class="left"/>
+    </li>
+    <li class="l4">
+        <div class="bg">
+            <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/d_1.png" class="left"/>
+            <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/d_2.jpg" class="right"/>
+        </div>
+    </li>
+    <li class="l5">
+        <div class="bg">
+            <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/e_1.png" class="left"/>
+            <img src="http://img1.cache.netease.com/f2e/lady/media2014/images/e_2.png" class="right"/>
+        </div>
+    </li>
+</ul>
+<script>
+    mouseWheel(document,"ul")
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{width:100px;height:100px;background:red;position: absolute;}
+        #div2{width:100px;height:100px;background:burlywood;left:100px;position: absolute;}
+        #div3{width:100px;height:100px;background:darkcyan;left:200px;position: absolute;}
+        #div4{width:100px;height:100px;background:fuchsia;left:300px;position: absolute;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var d1=new Drag();
+            d1.init({//配置参数
+                id:"div1"
+            });
+            var d2=new Drag();
+            d2.init({//配置参数
+                id:"div2",
+                toDown:function(){
+                    document.title="hello"
+                }
+            });
+            var d3=new Drag();
+            d3.init({//配置参数
+                id:"div3",
+                toDown:function(){
+                    document.title="miaov"
+                },
+                toUp:function(){
+                    document.title="课堂"
+                }
+            });
+            var d4=new Drag();
+            d4.init({//配置参数
+                id:"div4",
+                toUp:function(){
+                    document.title="bybye"
+                }
+            });
+        };
+        function Drag()l
+        {
+            this.obj=null;
+            this.disX=0;
+            this.disY=0;
+            this.settings={//默认参数
+               toDown:function(){},
+                toUp:function(){}
+            };
+        }
+
+        Drag.prototype.init=function(opt)
+        {
+            var This=this;
+            this.obj=document.getElementById(opt.id);
+            extend(this.settings,opt);//配置参数
+            this.obj.onmousedown=function(ev)
+            {
+                var ev=ev||event;
+                This.fnDown(ev);
+                This.settings.toDown();
+                document.onmousemove=function()
+                {
+                    var ev=ev||event;
+                    This.fnMove(ev);
+                };
+                document.onmouseup=function()
+                {
+                    This.fnUp();
+                    This.settings.toUp();
+                }
+            }
+        };
+        Drag.prototype.fnDown=function(ev){
+            this.disX=ev.clientX-this.obj.offsetLeft;
+            this.disY=ev.clientY-this.obj.offsetTop;
+        };
+        Drag.prototype.fnMove=function(ev)
+        {
+            this.obj.style.left=ev.clientX-this.disX+"px";
+            this.obj.style.top=ev.clientY-this.disY+"px";
+        };
+        Drag.prototype.fnUp=function()
+        {
+            document.onmousemove=null;
+            document.onmouseup=null;
+        };
+        function extend(obj1,obj2)
+        {
+            for(var attr in obj2)
+            {
+                obj1[attr]=obj2[attr];
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">老大</div>
+<div id="div2">老二</div>
+<div id="div3">老三</div>
+<div id="div4">老四</div>
+</body>
+</html>

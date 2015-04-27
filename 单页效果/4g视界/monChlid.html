@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet/less" href="css/commen.less" />
+    <link rel="stylesheet/less" href="css/monChild.less" />
+    <script type="text/javascript" src="js/less-1.3.3.min.js"></script>
+    <script type="text/javascript" src="js/miaov.js"></script>
+</head>
+<body>
+<header>
+    <div class="menu"><img src="images/header_l.png"/></div>
+    <div class="tt">时尚</div>
+    <div class="logo">
+        <a href="#" target="_blank">
+            <img src="images/header_r.png"/>
+        </a>
+    </div>
+</header>
+<nav class="transition">
+    <ul class="clearfix">
+        <li><a href="#" target="_blank">新闻</a> </li>
+        <li><a href="#" target="_blank">娱乐</a> </li>
+        <li><a href="#" target="_blank">体育</a> </li>
+        <li><a href="#" target="_blank">时尚</a> </li>
+        <li><a href="#" target="_blank">汽车</a> </li>
+        <li><a href="#" target="_blank">母婴</a> </li>
+        <li><a href="#" target="_blank">视频</a> </li>
+        <li><a href="#" target="_blank">图库</a> </li>
+        <li><a href="#" target="_blank">直播</a> </li>
+    </ul>
+</nav>
+<section class="colspanLoop l1">
+    <ul class="clearfix">
+        <li><a href="#" target="_blank"><img src="images/my1_3.jpg"/></a><p><span>4/4</span>产后“第一次”如何让“性福”新生</p></li>
+        <li><a href="#" target="_blank"><img src="images/my1_1.jpg"/></a><p><span>1/4</span>剖腹产后多久能同房</p></li>
+        <li><a href="#" target="_blank"><img src="images/my1_2.jpg"/></a><p><span>2/4</span>中西医微博约战：“把脉验孕”靠谱么？</p></li>
+        <li><a href="#" target="_blank"><img src="images/my1_3.jpg"/></a><p><span>3/4</span>3个受孕体位那个更靠谱</p></li>
+        <li><a href="#" target="_blank"><img src="images/my1_4.jpg"/></a><p><span>4/4</span>产后“第一次”如何让“性福”新生</p></li>
+        <li><a href="#" target="_blank"><img src="images/my1_1.jpg"/></a><p><span>1/4</span>剖腹产后多久能同房</p></li>
+    </ul>
+</section>
+<section class="colspan1">
+ <a href="#" target="_blank"><img src="images/my2_1.jpg"/><p>孕期5大症状判断生男生女</p></a>
+</section>
+<section class="colspanLoop l2">
+    <ul class="clearfix">
+        <li><a href="#" target="_blank"><img src="images/my3_3.jpg"/></a><p><span>4/4</span>你从未见过的女性新式避孕法</p></li>
+        <li><a href="#" target="_blank"><img src="images/my3_1.jpg"/></a><p><span>1/4</span>女人腿间缝隙大意味着什么(图)</p></li>
+        <li><a href="#" target="_blank"><img src="images/my3_2.jpg"/></a><p><span>2/4</span>支招：如何如何让宝宝爱上刷牙？</p></li>
+        <li><a href="#" target="_blank"><img src="images/my3_3.jpg"/></a><p><span>3/4</span>父母必知：14类宝宝的智商超高</p></li>
+        <li><a href="#" target="_blank"><img src="images/my3_3.jpg"/></a><p><span>4/4</span>你从未见过的女性新式避孕法</p></li>
+        <li><a href="#" target="_blank"><img src="images/my3_1.jpg"/></a><p><span>1/4</span>女人腿间缝隙大意味着什么(图)</p></li>
+    </ul>
+</section>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript">
+    menuTab();
+    var banWrap1=document.getElementsByClassName("colspanLoop")[0];
+    var oUl1=banWrap1.getElementsByTagName("ul")[0];
+    var oLi1=banWrap1.getElementsByTagName("li");
+
+    var banWrap2=document.getElementsByClassName("colspanLoop")[1];
+    var oUl2=banWrap2.getElementsByTagName("ul")[0];
+    var oLi2=banWrap2.getElementsByTagName("li");
+
+    Loop(banWrap1,oUl1,oLi1);
+    Loop(banWrap2,oUl2,oLi2);
+</script>
+</body>
+</html>

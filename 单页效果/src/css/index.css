@@ -1,0 +1,311 @@
+.footer{
+	position: absolute;
+	left:50%;
+	bottom:10px;
+	width: 760px;
+	height: 55px;
+	margin-left: -360px;
+	z-index: 2;
+	color:#7a7a7a;
+	font-size: 12px;
+}
+.footer a{
+	color:#7a7a7a;
+}
+.footer a:hover{
+	text-decoration: underline;
+}
+
+/*--content end*/
+
+.page-1{
+
+}
+.page-1-bg{
+	position:absolute;
+	width:100%;
+	height:726px;
+	background: url(../img/zhugeliang.png) top center no-repeat;
+	left:0;
+	top:110px;
+}
+
+.page-1 .left-content{
+	float:left;
+	width:300px;
+	height:520px;
+}
+.page-1 .right-content{
+	float:right;
+	width:300px;
+	height:578px;
+}
+.page-1 .slider-news{
+	width:265px;
+	height:110px;
+	float:right;
+	overflow: hidden;
+	margin-top: 133px;
+	position: relative;
+}
+.page-1 .slider-news .pic-list{
+	float:left;
+	display: block;
+	width:1500px;
+	height:100%;
+}
+.page-1 .slider-news .pic-list a{
+	width:265px;
+	height:100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.page-1 .slider-news .page{
+	position: absolute;
+	left:0;
+	bottom:13px;
+	height:16px;
+	width:253px;
+	text-align: right;
+	overflow: hidden;
+	z-index: 7;
+}
+.page-1 .slider-news .page a{
+	display: inline-block;
+	width:16px;
+	height:16px;
+	background: url(../img/slider-page.png) 0 0 no-repeat;
+	letter-spacing: 0px;
+}
+.page-1 .slider-news .page a:hover,.page-1 .slider-news .page a.current{
+	background-position: -16px 0;
+}
+.page-1 .news-list{
+	float:right;
+	width:268px;
+	margin-top: 17px;
+}
+.page-1 .news-list .news-nav{
+	display: block;
+	float:left;
+	width:190px;
+	height:19px;
+}
+.page-1 .news-list li{
+	width: 45px;
+	float:left;
+	margin-right:17px;
+}
+.page-1 .news-list a{
+	display: block;
+	height:19px;
+	width:45px;
+	background: url(../img/home-news-nav.png) 0 0 no-repeat;
+}
+.page-1 .news-list .last{
+	background-position: 0 -19px;
+}
+.page-1 .news-list .news{
+	background-position: -45px -19px; 
+}
+.page-1 .news-list .act{
+	background-position: -90px -19px;
+}
+.page-1 .news-list a.select,.page-1 .news-list a:hover{
+	background-position-y:0;
+}
+.page-1 .news-list .news-more{
+	display: block;
+	float:right;
+	width:48px;
+	height:16px;
+	background: url(../img/home-news-nav.png) -135px 0 no-repeat;
+	margin-right: 0;
+}
+.page-1 .news-list .list-item{
+	display: block;
+	float:left;
+	width:100%;
+	height: 111px;
+	margin-top: 14px;
+}
+.page-1 .news-list .list-item li{
+	float:left;
+	display: block;
+	width: 100%;
+	margin-bottom: 9px;
+	height: 14px;
+}
+.page-1 .news-list .list-item a{
+	float:left;
+	color:#183641;
+	width:auto;
+	_width:220px;
+	max-width: 220px;
+	text-decoration: none;
+	background: none;
+	overflow: hidden;
+	font-size: 12px;
+}
+.page-1 .news-list .list-item a:hover{
+	text-decoration: underline;
+}
+.page-1 .news-list .list-item label{
+	float: right;
+	color:#768380;
+}
+.page-1 .focus{
+	float:right;
+	margin-top: 20px;
+	position: relative;
+}
+.page-1 .focus .btn{
+	display: block;
+	float:left;
+	width:116px;
+	height:33px;
+	background: url(../img/home-focus.png) 0px 0 no-repeat;
+	color:white;
+	text-align: center;
+	line-height: 33px;
+	cursor: default;
+}
+.page-1 .focus .yixin{
+	text-indent: 15px;
+}
+.page-1 .focus .yixin label{
+	position: absolute;
+	display: none;
+	width:33px;
+	height:43px;
+	background: url(../img/focus-bg.png) 0 -107px no-repeat;
+	left:0;
+	top:0;
+}
+.page-1 .focus .weixin{
+	text-align: left;
+	text-indent: 24px;
+	background-position: -116px 0;
+}
+.page-1 .focus .weixin label{
+	position: absolute;
+	display: none;
+	width:33px;
+	height:43px;
+	background: url(../img/focus-bg.png) -33px -107px no-repeat;
+	right:0;
+	top:0;
+}
+.page-1 .focus .focus-content{
+	position: absolute;
+	width:232px;
+	height: 107px;
+	background: url(../img/focus-bg.png) 0 0 no-repeat;
+	left:0;
+	top:39px;
+	color:white;
+	display: none;
+}
+.page-1 .focus .focus-content .erweima{
+	width: 71px;
+	height: 71px;
+	float:left;
+	margin:18px 0 0 18px;
+}
+.page-1 .focus .focus-content h4{
+	font-size: 14px;
+	display: block;
+	float:left;
+	margin:20px 0 0 16px;
+}
+.page-1 .focus .focus-content p{
+	font-size: 12px;
+	display: block;
+	float:left;
+	margin:9px 0 0 16px;
+	line-height: 20px;
+	width:108px;
+}
+
+.page-1 .intro{
+	width:1200px;
+	float:left;
+	position: absolute;
+	top: 617px;
+}
+.page-1 .intro ul{
+	float:left;
+	display: block;
+}
+.page-1 .intro li{
+	float:left;
+	display: block;
+	width:285px;
+	height:150px;
+	background: url(../img/home-intro-bg.jpg) 0 0 no-repeat;
+	margin-right: 19px;
+	position: relative;
+}
+.page-1 .intro li:hover{
+	opacity: 0.75;
+	filter:alpha(opacity=75);
+}
+.page-1 .intro h4{
+	display: block;
+	float:left;
+	color:white;
+	margin:62px 0 0 24px;
+}
+.page-1 .intro span{
+	display: block;
+	clear:left;
+	float:left;
+	color:white;
+	background-color: #153d39;
+	color:#74bcaf;
+	width:58px;
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	margin:12px 0 0 24px;
+	font-size: 12px;
+}
+.page-1 .intro .btn{
+	position: absolute;
+	z-index: 2;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+}
+.page-1 .intro .jiangpu{
+	background-position: -285px 0;
+}
+.page-1 .intro .jiangpu span{
+	background-color: #234d5d;
+	color:#2fb9bd;
+}
+.page-1 .intro .yuyue{
+	background-position: -570px 0;
+}
+.page-1 .intro .yuyue h4{
+	margin-left: 27px;
+}
+.page-1 .intro .yuyue span{
+	margin-left: 27px;
+}
+.page-1 .intro .act{
+	background-position: -855px 0;
+}
+.page-1 .intro .act h4{
+	margin-left:30px;
+}
+.page-1 .intro .act span{
+	background-color: #4f570d;
+	color:#94c110;
+	margin-left:30px;
+}
+.page-1 .intro .cuxiao{
+	background-position: -1140px 0;
+}

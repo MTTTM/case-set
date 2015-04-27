@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        body{-webkit-perspective:800px;-webkit-transform-style:preserve-2d;}
+        @-webkit-keyframes ror
+        {
+            0%{-webkit-transform:rotateX(0deg);}
+           100%{-webkit-transform:rotateX(360deg);}
+        }
+        /*div{width:200px;height:200px;position: relative;left:300px;top:120px;font-size:60px;text-shadow:0 0 10px orange;line-height:200px;text-align:center;color:#fff;background:orchid;}*/
+        #wrap{width:300px;height:300px;position:relative;margin:100px auto;border:1px solid #000000;/*-webkit-transform:rotate(-45deg);其实我想对角翻转的，就盒子只有一个角在底部旋转*/-webkit-transform-origin:top;-webkit-transform-style:preserve-3d;}
+        .wrap2{width:300px;height:300px;position:relative;-webkit-animation:ror 5s infinite; -webkit-transform-origin:50% 50% 50px;-webkit-transform-style:preserve-3d;/*为什么这里没有继承到#wrap的3D属性*/ /* -webkit-backface-visibility:visiable;*/}
+        .wrap2 div{width:100px;height:100px;position: absolute;color:#fff;line-height: 100px;text-align: center;font-size: 25px;font-weight: bold;}
+        #wrap .left{background:brown;top:100px;left:0;-webkit-transform-origin:right;-webkit-transform:rotateY(90deg);/*-webkit-transform:rotateY(-90deg);-webkit-transform-origin:right;*/}
+        #wrap .mid{background:orchid;top:100px;left:100px;}
+        #wrap .right{background:orange;left:200px;top:100px;-webkit-transform-origin:left;-webkit-transform:rotateY(-90deg);/*-webkit-transform:rotateY(90deg);-webkit-transform-origin:left;*/}
+        #wrap .top{background:orange;left:100px;top:0;;-webkit-transform-origin:bottom;-webkit-transform:rotateX(-90deg);/*-webkit-transform:rotateX(90deg);-webkit-transform-origin:bottom;*/}
+        #wrap .btm{background:darkcyan;top:200px;left:100px; -webkit-transform-origin:top;-webkit-transform:rotateX(90deg);/*-webkit-transform:rotateX(-90deg);-webkit-transform-origin:top;*/}
+        #wrap .bg{background:greenyellow;top:100px;left:100px;-moz-transform:translateZ(100px);-webkit-transform:translateZ(100px);}/*这里是如何就是当前对面的那个页面Z轴移动的距离的？？*/
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="wrap2">
+        <div class="left">L</div>
+        <div class="mid">M</div>
+        <div class="right">R</div>
+        <div class="top">T</div>
+        <div class="btm">B</div>
+        <div class="bg">Bg</div>
+    </div>
+</div>
+</body>
+</html>

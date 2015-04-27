@@ -1,0 +1,229 @@
+@charset "utf-8";
+/* CSS Document */
+/* There are css reset */
+*{margin:0;padding:0;}
+body,html{font-size: 100%;min-width: 330px;width:100%;}
+body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquoteth,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+body,html{height:100%;font-family: "Microsoft YaHei","simsun", Arial, Helvetica, sans-serif;color:#333;}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+capation,th{text-align:left;}
+q:before, q:after{content:' ';}
+abbr,acronym{border:0;}
+a{text-decoration:none; color:#000;}
+a:hover{text-decoration:underline; color:#FF538E;}
+:active {outline:none;}
+.clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden;}
+.clearfix {zoom: 1;}
+.txh{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.txh2{overflow: hidden;white-space: nowrap;}
+.transition{
+  -webkit-transition:all 0.3s ease-in-out;
+  -moz-transition:all 0.3s ease-in-out;
+  -ms-transition:all 0.3s ease-in-out;
+  -o-transition:all 0.3s ease-in-out;
+  transition:all 0.3s ease-in-out;
+}
+
+.borderRadius(@radius)
+{
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+.boxShadow(@arguments)
+{
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+/*reset end*/
+
+/*container*/
+.container{
+  width:85%;position:relative;top:44px;margin-left:15%;box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+  .banner
+  {
+    position: relative;
+    a{display: block;width:100%;position: relative;}
+    img{width:100%;}
+    p{font-size: 0.87em;height:30px;width:100%;position: absolute;left:0;bottom:0;text-align:center;color:#fff;line-height:30px;}
+  }
+  .intr
+  {
+    .tt{color:#000;font-size: .875em;max-height: 38px;padding-bottom:5px;}
+    .des{font-size: .875em;max-height: 60px;}
+    .intr-left
+    {
+      display: block;padding:5px;float:left;
+      img{width:86px;height:106px;}
+    }
+    .intr-right
+    {
+      position: relative;
+      height:120px;
+      margin-left:5px;
+      margin-top:5px;
+     padding-left:3px;
+      border-left: 1px  solid #cecece;
+      .btn_bg
+      {
+        position: absolute;
+        right:0;
+        bottom:0;
+        width:16px;
+        height:15px;
+      }
+    }
+    .intr-btm{
+      clear:left;
+      padding:4px 0 20px 1em;
+      border-top: 1px solid #cecece;
+    }
+  }
+  section
+  {
+    padding-top:25px;
+    margin-top:20px;
+    background:url(../images/list_bg.png) no-repeat top left;
+    background-size:100%;
+    .img-list
+    {
+
+      li
+      {
+        width:46%;padding:0 1.5%;float:left;
+        img
+        {
+          width:100%;
+          height:auto;
+          .boxShadow(6px 6px 10px rgba(0, 0, 0, 0.5));
+
+        }
+        a{max-height:32px;color:#000;font-size: 0.66em;line-height:0.66em;}
+      }
+
+    }
+    .txt-list
+    {
+      .img{background:url(../images/imgAndVideo.png) no-repeat right -74px;background-size: 20px auto;}
+      .video{background:url(../images/imgAndVideo.png) no-repeat right top;background-size: 20px auto;}
+      li
+      {
+        width: 100%;
+        max-height: 38px;
+        padding: 8px 0;
+        border-bottom: 1px solid #cecece;
+        box-shadow: 0 1px 0 #fff;
+        font-size: .875em;
+        line-height: 1.5em;
+        overflow: hidden;
+        a{padding-left:1em;padding-right:1em;}
+      }
+
+    }
+  }
+  .bottom
+  {
+    padding:30px;
+    border-top:1px solid #cecece;
+    border-bottom:2px solid #cecece;
+    background:#ebebeb;
+    li
+    {
+       width:25%;
+      float:left;
+      margin-bottom: 10px;
+      font-size: .875em;
+      a
+      {
+        color:#19427e;
+        display: block;
+        padding-left:4px;
+        border-left:2px solid #bf0a0a;
+      }
+    }
+  }
+  .footer
+  {
+    padding:10px 10px 50px 10px;
+    border-top:1px solid #fff;
+    background:#ebebeb;
+    li
+    {
+      font-size: 0.876em;
+      float:left;
+      width:25%;
+      text-align: center;
+      a
+      {
+        color:#999;
+      }
+    }
+    p
+    {
+      padding-top:10px;
+      font-size: 0.678em;
+      text-align: center;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

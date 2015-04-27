@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery1.42.min.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+         var $comment=$("#comment");
+            $(".bigger").click(function(){
+                if(!$comment.is(":animated"))
+                {
+                    if($comment.height()<500)
+                    {
+                        $comment.animate({scrollTop:"+=50"},400)
+                    }
+                }
+
+            });
+            $(".smaller").click(function(){
+                if(!$comment.is(":animated"))
+                {
+                    if($comment.height()>50)
+                    {
+                        $comment.animate({scrollTop:"-=50"},400)
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<form>
+    <div class="msg">
+        <div class="msg_caption">
+            <span class="bigger">+</span>
+            <span class="smaller">-</span>
+        </div>
+        <textarea id="comment" rows="8" cols="20">
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......
+            【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】单身久了,男
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】单身久了,男
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】单身久了,男
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】单身久了,男
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】单身久了,男
+            单身久了,男人会......【爱情课堂NO.1】单身久了,男人会......【爱情课堂NO.1】单身久了,男
+        </textarea>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box{width:100px;height:100px;background:red;position: absolute;left:0;top:30px;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var oDiv=document.getElementById("box");
+            var  btn=document.getElementById("btn");
+
+            var timer=null;
+            var speed=0;
+            var iSpeedX=10;
+            btn.onclick=function()
+            {
+                startMove();
+            };
+
+            function startMove()
+            {
+                clearInterval(timer);
+                timer=setInterval(function()
+                {
+
+                    speed+=3;
+                    var T=oDiv.offsetTop+speed;
+                    if(T>document.documentElement.clientHeight-oDiv.offsetHeight)//节点接触到浏览器底部或超过的时候
+                    {
+                        T=document.documentElement.clientHeight-oDiv.offsetHeight;//回到接触浏览器底部的状态
+                        speed*=-1;//速度取反
+                        speed*=0.75;//给Y轴运动添加重力
+                        iSpeedX*=0.75;//给x轴运动添加摩擦力
+                    }
+                    oDiv.style.top=T+"px";
+                    oDiv.style.left=oDiv.offsetLeft+iSpeedX+"px";//左边距离不断增加
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="box"></div>
+</body>
+</html>

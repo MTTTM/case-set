@@ -7,7 +7,7 @@ function mouseWheel(b,scroll)
     var box=$(scroll);
     var bx=$(b);
 //制作鼠标滚动
-    console.log(parseInt(box.css("top")))
+    var winH=$(window).height();
     bx.bind("DOMMouseScroll",fn);
     bx.bind("mousewheel",fn);
     var b=null;//定义一个值来同意webkit和Moz的滚轮 往上滚和往下滚 的判断
@@ -31,13 +31,13 @@ function mouseWheel(b,scroll)
                 {
                     if(box.offset().top>=0)
                     {
-                        box.attr("top","0")
+                        box.attr("top","0");
                         iNow=0;
                     }
                     else
                     {
                         iNow--;
-                        box.animate({top:box.offset().top+=parseInt($(".bg img").height())}, 800,"easeBoth")
+                        box.animate({top:box.offset().top+=parseInt(winH)}, 800,"easeBoth")
                     }
                     tab(iNow);
                 }
@@ -56,7 +56,7 @@ function mouseWheel(b,scroll)
                     else
                     {
                         iNow++;
-                        box.animate({top:box.offset().top-=parseInt($(".bg img").height())}, 800,"easeBoth");
+                        box.animate({top:box.offset().top-=parseInt(winH)}, 800,"easeBoth");
                     }
                     tab(iNow);
                 }
@@ -70,18 +70,20 @@ $(function(){
 function tab(iNow)
 {
     var menu=$(".menu").find("span");
-    menu.eq(0).addClass("on").siblings().removeClass("on")
+    menu.eq(0).addClass("on").siblings().removeClass("on");
     menu.eq(iNow).addClass("on").siblings().removeClass("on")
 }
 //工具函数
 //阻止ctrl+“-||+”
 document.onkeydown=function(evt){
-    var evt=evt||window.event;
+    winH=$(window).height();
+    fn();
+   /* var evt=evt||window.event;
     console.log(evt.keyCode||evt.which);
     var code = evt.keyCode||evt.which;
     if(evt.ctrlKey && (code==187 || code==189|| code==107||code==109)){
         preDef(evt);
-    }
+    }**/
 };
 
 //获取Event对象
